@@ -61,6 +61,17 @@ common:
     url: https://www.easyship.com/blog
   - type: Status
     url: https://status.easyship.com/
+  - type: Integrations
+    url: https://www.easyship.com/integrations
+integrations:
+  - name: BECOME A PARTNER
+  - name: WooCommerce
+  - name: Squarespace
+  - name: Amazon
+  - name: eBay
+  - name: Etsy
+  - name: Wix
+  - name: TikTok Shop
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
