@@ -38,13 +38,13 @@ apis:
         url: https://developers.easyship.com/docs
       - type: Reference
         url: https://developers.easyship.com/reference
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.easyship.com/reference/getting-started
       - type: Authentication
         url: https://developers.easyship.com/reference/authentication
       - type: Recipes
         url: https://developers.easyship.com/recipes
-      - type: Changelog
+      - type: ChangeLog
         url: https://developers.easyship.com/changelog
 common:
   - type: Website
@@ -53,13 +53,13 @@ common:
     url: https://developers.easyship.com/
   - type: Pricing
     url: https://www.easyship.com/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://app.easyship.com/login
   - type: Support
     url: https://support.easyship.com/
   - type: Blog
     url: https://www.easyship.com/blog
-  - type: Status
+  - type: StatusPage
     url: https://status.easyship.com/
   - type: Integrations
     url: https://www.easyship.com/integrations
