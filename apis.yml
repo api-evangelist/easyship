@@ -47,6 +47,10 @@ apis:
       - type: ChangeLog
         url: https://developers.easyship.com/changelog
 common:
+  - type: GitHubOrganization
+    url: https://github.com/easyship
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/easyship
   - type: Website
     url: https://www.easyship.com/
   - type: Developer Portal
