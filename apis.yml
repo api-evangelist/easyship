@@ -67,6 +67,8 @@ common:
     url: https://status.easyship.com/
   - type: Integrations
     url: https://www.easyship.com/integrations
+  - type: LLMsTxt
+    url: https://developers.easyship.com/llms.txt
 integrations:
   - name: BECOME A PARTNER
   - name: WooCommerce
