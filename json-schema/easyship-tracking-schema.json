@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/easyship/blob/main/json-schema/easyship-tracking-schema.json",
+  "title": "Easyship Tracking",
+  "description": "Tracking object returned by the Easyship trackings endpoint.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "tracking_number": { "type": "string" },
+    "courier_id": { "type": "string" },
+    "courier_umbrella_name": { "type": "string" },
+    "tracking_page_url": { "type": "string", "format": "uri" },
+    "current_status": {
+      "type": "string",
+      "enum": [
+        "label_generated",
+        "pending",
+        "in_transit",
+        "out_for_delivery",
+        "delivered",
+        "exception",
+        "returned"
+      ]
+    },
+    "checkpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "checkpoint_time": { "type": "string", "format": "date-time" },
+          "city": { "type": "string" },
+          "state": { "type": "string" },
+          "country_alpha2": { "type": "string", "minLength": 2, "maxLength": 2 },
+          "status": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["checkpoint_time", "status"]
+      }
+    }
+  },
+  "required": ["tracking_number"]
+}

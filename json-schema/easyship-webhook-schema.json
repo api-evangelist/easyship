@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/easyship/blob/main/json-schema/easyship-webhook-schema.json",
+  "title": "Easyship Webhook",
+  "description": "A webhook subscription that receives event notifications from Easyship.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "shipment.label.created",
+          "shipment.label.failed",
+          "shipment.tracking.checkpoints.created",
+          "shipment.tracking.status.changed",
+          "shipment.warehouse.state.changed",
+          "pickup.created",
+          "pickup.cancelled"
+        ]
+      },
+      "minItems": 1
+    },
+    "version": { "type": "string" },
+    "secret": { "type": "string", "description": "Shared secret for signing webhook payloads" },
+    "active": { "type": "boolean" }
+  },
+  "required": ["url", "events"]
+}

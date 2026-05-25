@@ -1,0 +1,181 @@
+{
+  "provider": "Easyship",
+  "providerId": "easyship",
+  "kind": "json-structure",
+  "description": "Structural overview of the Easyship API surface; derived from openapi/easyship-openapi.yml.",
+  "schemaCount": 6,
+  "operationCount": 19,
+  "schemas": [
+    {
+      "name": "Address",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "Parcel",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Item",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "Rate",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "Shipment",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "Webhook",
+      "type": "object",
+      "propertyCount": 2,
+      "required": ["url", "events"]
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/rates",
+      "operationId": "getRates",
+      "summary": "Request Shipping Rate Quotes",
+      "tags": ["Rates"]
+    },
+    {
+      "method": "POST",
+      "path": "/shipments",
+      "operationId": "createShipment",
+      "summary": "Create a Shipment",
+      "tags": ["Shipments"]
+    },
+    {
+      "method": "GET",
+      "path": "/shipments",
+      "operationId": "listShipments",
+      "summary": "List Shipments",
+      "tags": ["Shipments"]
+    },
+    {
+      "method": "GET",
+      "path": "/shipments/{id}",
+      "operationId": "getShipment",
+      "summary": "Show a Shipment",
+      "tags": ["Shipments"]
+    },
+    {
+      "method": "PATCH",
+      "path": "/shipments/{id}",
+      "operationId": "updateShipment",
+      "summary": "Update a Shipment",
+      "tags": ["Shipments"]
+    },
+    {
+      "method": "DELETE",
+      "path": "/shipments/{id}",
+      "operationId": "deleteShipment",
+      "summary": "Delete a Shipment",
+      "tags": ["Shipments"]
+    },
+    {
+      "method": "POST",
+      "path": "/shipments/{id}/cancel",
+      "operationId": "cancelShipment",
+      "summary": "Cancel a Shipment",
+      "tags": ["Shipments"]
+    },
+    {
+      "method": "POST",
+      "path": "/labels",
+      "operationId": "createLabels",
+      "summary": "Create Labels for One or More Shipments",
+      "tags": ["Labels"]
+    },
+    {
+      "method": "POST",
+      "path": "/addresses",
+      "operationId": "createAddress",
+      "summary": "Create an Address",
+      "tags": ["Addresses"]
+    },
+    {
+      "method": "GET",
+      "path": "/addresses",
+      "operationId": "listAddresses",
+      "summary": "List Addresses",
+      "tags": ["Addresses"]
+    },
+    {
+      "method": "GET",
+      "path": "/addresses/{id}",
+      "operationId": "getAddress",
+      "summary": "Show an Address",
+      "tags": ["Addresses"]
+    },
+    {
+      "method": "PATCH",
+      "path": "/addresses/{id}",
+      "operationId": "updateAddress",
+      "summary": "Update an Address",
+      "tags": ["Addresses"]
+    },
+    {
+      "method": "POST",
+      "path": "/pickups",
+      "operationId": "createPickup",
+      "summary": "Create a Pickup",
+      "tags": ["Pickups"]
+    },
+    {
+      "method": "GET",
+      "path": "/pickups",
+      "operationId": "listPickups",
+      "summary": "List Pickups",
+      "tags": ["Pickups"]
+    },
+    {
+      "method": "POST",
+      "path": "/trackings",
+      "operationId": "createTracking",
+      "summary": "Create a Tracking",
+      "tags": ["Trackings"]
+    },
+    {
+      "method": "GET",
+      "path": "/trackings",
+      "operationId": "listTrackings",
+      "summary": "List Trackings",
+      "tags": ["Trackings"]
+    },
+    {
+      "method": "GET",
+      "path": "/trackings/{id}",
+      "operationId": "getTracking",
+      "summary": "Show a Tracking",
+      "tags": ["Trackings"]
+    },
+    {
+      "method": "POST",
+      "path": "/webhooks",
+      "operationId": "createWebhook",
+      "summary": "Create a Webhook",
+      "tags": ["Webhooks"]
+    },
+    {
+      "method": "GET",
+      "path": "/webhooks",
+      "operationId": "listWebhooks",
+      "summary": "List Webhooks",
+      "tags": ["Webhooks"]
+    }
+  ]
+}

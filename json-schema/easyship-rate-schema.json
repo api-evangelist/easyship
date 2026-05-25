@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/easyship/blob/main/json-schema/easyship-rate-schema.json",
+  "title": "Easyship Rate",
+  "description": "A shipping rate quote from a specific courier for a given shipment.",
+  "type": "object",
+  "properties": {
+    "courier_id": { "type": "string" },
+    "courier_name": { "type": "string" },
+    "total_charge": { "type": "number", "description": "Total price for the rate in the given currency" },
+    "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+    "min_delivery_time": { "type": "integer", "description": "Minimum delivery time in business days" },
+    "max_delivery_time": { "type": "integer", "description": "Maximum delivery time in business days" },
+    "value_for_money_rank": { "type": "integer" },
+    "delivery_time_rank": { "type": "integer" },
+    "tracking_rating": { "type": "number" },
+    "incoterms": { "type": "string", "enum": ["DDU", "DDP"] }
+  },
+  "required": ["courier_id", "total_charge", "currency"]
+}

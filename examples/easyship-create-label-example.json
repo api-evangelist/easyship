@@ -1,0 +1,39 @@
+{
+  "example": "Create Label for a Shipment",
+  "description": "Generate a shipping label for an existing Easyship shipment using a chosen courier.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.easyship.com/2024-09/labels",
+    "headers": {
+      "Authorization": "Bearer prod_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "shipments": [
+        {
+          "easyship_shipment_id": "ESHK0001234567",
+          "courier_id": "00112233-4455-6677-8899-aabbccddeeff"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "shipments": [
+        {
+          "easyship_shipment_id": "ESHK0001234567",
+          "courier_id": "00112233-4455-6677-8899-aabbccddeeff",
+          "label_url": "https://label.easyship.com/labels/ESHK0001234567.pdf",
+          "label_paper_size": "4x6",
+          "label_format": "pdf",
+          "tracking_number": "1234567890",
+          "tracking_page_url": "https://www.easyship.com/track/1234567890",
+          "tracking_status": "label_generated",
+          "commercial_invoice_url": "https://label.easyship.com/ci/ESHK0001234567.pdf",
+          "packing_slip_url": "https://label.easyship.com/ps/ESHK0001234567.pdf"
+        }
+      ]
+    }
+  }
+}

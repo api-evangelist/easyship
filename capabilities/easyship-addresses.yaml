@@ -1,0 +1,184 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Easyship API — Addresses
+  description: 'Easyship API — Addresses. CRUD-style address management for senders and recipients.'
+  tags:
+    - Easyship
+    - Addresses
+    - Shipping
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      EASYSHIP_API_TOKEN: EASYSHIP_API_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: easyship-addresses
+      baseUri: https://api.easyship.com/2024-09
+      description: Easyship API — Addresses business capability.
+      resources:
+        - name: addresses
+          path: /addresses
+          operations:
+            - name: listaddresses
+              method: GET
+              description: List Addresses
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters: []
+            - name: createaddress
+              method: POST
+              description: Create an Address
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: addresses-Id
+          path: /addresses/{Id}
+          operations:
+            - name: getaddress
+              method: GET
+              description: Show an Address
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: Id
+                  in: path
+                  type: string
+                  required: true
+            - name: updateaddress
+              method: PATCH
+              description: Update an Address
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: Id
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+      authentication:
+        type: bearer
+        token: '{{env.EASYSHIP_API_TOKEN}}'
+  exposes:
+    - type: rest
+      namespace: easyship-addresses-rest
+      port: 8080
+      description: REST adapter for Easyship API — Addresses.
+      resources:
+        - path: /v1/addresses
+          name: addresses
+          description: REST surface for addresses.
+          operations:
+            - method: GET
+              name: listaddresses
+              description: List Addresses
+              call: easyship-addresses.listaddresses
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: createaddress
+              description: Create an Address
+              call: easyship-addresses.createaddress
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/addresses/{id}
+          name: addresses-id
+          description: REST surface for addresses-Id.
+          operations:
+            - method: GET
+              name: getaddress
+              description: Show an Address
+              call: easyship-addresses.getaddress
+              with:
+                Id: rest.Id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PATCH
+              name: updateaddress
+              description: Update an Address
+              call: easyship-addresses.updateaddress
+              with:
+                Id: rest.Id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: easyship-addresses-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Easyship API — Addresses.
+      tools:
+        - name: list-addresses
+          description: List Addresses
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: easyship-addresses.listaddresses
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-address
+          description: Create an Address
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: easyship-addresses.createaddress
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: get-address
+          description: Show an Address
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: easyship-addresses.getaddress
+          with:
+            Id: tools.Id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: update-address
+          description: Update an Address
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: easyship-addresses.updateaddress
+          with:
+            Id: tools.Id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

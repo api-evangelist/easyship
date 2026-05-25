@@ -1,0 +1,75 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "easyship": "https://api.easyship.com/schema/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Shipment": "easyship:Shipment",
+    "Rate": "easyship:Rate",
+    "Label": "easyship:Label",
+    "Address": "easyship:Address",
+    "Parcel": "easyship:Parcel",
+    "Item": "easyship:Item",
+    "Pickup": "easyship:Pickup",
+    "Tracking": "easyship:Tracking",
+    "Manifest": "easyship:Manifest",
+    "Webhook": "easyship:Webhook",
+    "Box": "easyship:Box",
+
+    "id": "schema:identifier",
+    "easyship_shipment_id": "easyship:easyshipShipmentId",
+    "platform_order_number": "schema:orderNumber",
+    "status": "schema:orderStatus",
+    "created_at": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+    "updated_at": { "@id": "schema:dateModified", "@type": "xsd:dateTime" },
+
+    "origin_address": { "@id": "schema:sender", "@type": "schema:PostalAddress" },
+    "destination_address": { "@id": "schema:recipient", "@type": "schema:PostalAddress" },
+    "parcels": { "@id": "easyship:parcels", "@container": "@list" },
+    "items": { "@id": "schema:orderedItem", "@container": "@list" },
+    "rates": { "@id": "easyship:rates", "@container": "@list" },
+
+    "contact_name": "schema:name",
+    "contact_phone": "schema:telephone",
+    "contact_email": "schema:email",
+    "company_name": "schema:legalName",
+    "line_1": "schema:streetAddress",
+    "line_2": "easyship:streetAddress2",
+    "city": "schema:addressLocality",
+    "state": "schema:addressRegion",
+    "postal_code": "schema:postalCode",
+    "country_alpha2": "schema:addressCountry",
+
+    "box": { "@id": "easyship:box", "@type": "easyship:Box" },
+    "length": { "@id": "schema:depth", "@type": "xsd:number" },
+    "width": { "@id": "schema:width", "@type": "xsd:number" },
+    "height": { "@id": "schema:height", "@type": "xsd:number" },
+    "slug": "schema:identifier",
+    "total_actual_weight": { "@id": "schema:weight", "@type": "xsd:number" },
+
+    "description": "schema:description",
+    "quantity": { "@id": "schema:orderQuantity", "@type": "xsd:integer" },
+    "actual_weight": { "@id": "schema:weight", "@type": "xsd:number" },
+    "declared_currency": "schema:priceCurrency",
+    "declared_customs_value": { "@id": "schema:price", "@type": "xsd:number" },
+    "sku": "schema:sku",
+    "hs_code": "easyship:harmonizedSystemCode",
+    "origin_country_alpha2": "schema:countryOfOrigin",
+
+    "courier_id": "easyship:courierId",
+    "courier_name": "schema:provider",
+    "courier_umbrella_name": "easyship:courierUmbrellaName",
+    "total_charge": { "@id": "schema:price", "@type": "xsd:number" },
+    "currency": "schema:priceCurrency",
+    "min_delivery_time": { "@id": "easyship:minDeliveryDays", "@type": "xsd:integer" },
+    "max_delivery_time": { "@id": "easyship:maxDeliveryDays", "@type": "xsd:integer" },
+
+    "tracking_number": "schema:trackingNumber",
+    "tracking_url": { "@id": "schema:trackingUrl", "@type": "@id" },
+    "tracking_status": "easyship:trackingStatus",
+    "label_url": { "@id": "schema:url", "@type": "@id" },
+
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "events": { "@id": "schema:eventType", "@container": "@list" }
+  }
+}

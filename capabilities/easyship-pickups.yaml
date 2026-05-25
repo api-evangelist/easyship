@@ -1,0 +1,103 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Easyship API — Pickups
+  description: 'Easyship API — Pickups. Schedule courier pickups for labeled shipments.'
+  tags:
+    - Easyship
+    - Pickups
+    - Shipping
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      EASYSHIP_API_TOKEN: EASYSHIP_API_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: easyship-pickups
+      baseUri: https://api.easyship.com/2024-09
+      description: Easyship API — Pickups business capability.
+      resources:
+        - name: pickups
+          path: /pickups
+          operations:
+            - name: listpickups
+              method: GET
+              description: List Pickups
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters: []
+            - name: createpickup
+              method: POST
+              description: Create a Pickup
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+      authentication:
+        type: bearer
+        token: '{{env.EASYSHIP_API_TOKEN}}'
+  exposes:
+    - type: rest
+      namespace: easyship-pickups-rest
+      port: 8080
+      description: REST adapter for Easyship API — Pickups.
+      resources:
+        - path: /v1/pickups
+          name: pickups
+          description: REST surface for pickups.
+          operations:
+            - method: GET
+              name: listpickups
+              description: List Pickups
+              call: easyship-pickups.listpickups
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: createpickup
+              description: Create a Pickup
+              call: easyship-pickups.createpickup
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: easyship-pickups-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Easyship API — Pickups.
+      tools:
+        - name: list-pickups
+          description: List Pickups
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: easyship-pickups.listpickups
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: create-pickup
+          description: Create a Pickup
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: easyship-pickups.createpickup
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/easyship/blob/main/json-schema/easyship-label-schema.json",
+  "title": "Easyship Label",
+  "description": "A purchased shipping label and supporting documents for a shipment.",
+  "type": "object",
+  "properties": {
+    "easyship_shipment_id": { "type": "string" },
+    "courier_id": { "type": "string" },
+    "label_url": { "type": "string", "format": "uri" },
+    "label_paper_size": { "type": "string", "enum": ["A4", "4x6"] },
+    "label_format": { "type": "string", "enum": ["pdf", "png", "zpl"] },
+    "tracking_number": { "type": "string" },
+    "tracking_page_url": { "type": "string", "format": "uri" },
+    "tracking_status": { "type": "string" },
+    "commercial_invoice_url": { "type": "string", "format": "uri" },
+    "packing_slip_url": { "type": "string", "format": "uri" }
+  },
+  "required": ["easyship_shipment_id", "courier_id"]
+}

@@ -1,0 +1,167 @@
+title: Easyship API Vocabulary
+description: Operational and domain vocabulary for the Easyship multi-courier shipping platform
+provider: Easyship
+providerId: easyship
+version: '2024-09'
+source: https://developers.easyship.com/
+
+terms:
+  - term: Shipment
+    definition: >-
+      The core Easyship resource representing a shipping order. Contains origin and
+      destination addresses, parcel and item details, and links to chosen courier
+      and label artifacts. Created prior to label generation.
+    type: resource
+    related: [Address, Parcel, Rate, Label, Tracking]
+
+  - term: Rate
+    definition: >-
+      A quoted shipping option returned for a shipment, including total charge,
+      currency, estimated delivery window, courier identifier, and applicable
+      taxes and duties. Rates inform courier selection.
+    type: resource
+    related: [Shipment, Courier]
+
+  - term: Label
+    definition: >-
+      A purchased shipping label tied to a shipment. Generated through the labels
+      endpoint by referencing an easyship_shipment_id and a courier_id from a
+      previously fetched rate.
+    type: resource
+    related: [Shipment, Tracking]
+
+  - term: Address
+    definition: >-
+      A reusable postal address record for senders and recipients. Supports
+      contact name, phone, email, and company along with locale-appropriate
+      address fields including country_alpha2.
+    type: resource
+    related: [Shipment, Pickup]
+
+  - term: Parcel
+    definition: >-
+      Physical package definition with box dimensions, weight, and optional box
+      template slug. Multiple parcels can be combined into a single shipment.
+    type: resource
+    related: [Shipment, Box]
+
+  - term: Box
+    definition: >-
+      A reusable parcel template describing length, width, height, weight, and
+      slug for common packaging used across shipments.
+    type: resource
+    related: [Parcel]
+
+  - term: Item
+    definition: >-
+      A line item within a shipment used for customs declaration and duties and
+      taxes calculation. Includes description, quantity, declared value, HS code,
+      SKU, and origin country.
+    type: resource
+    related: [Shipment, Customs]
+
+  - term: Pickup
+    definition: >-
+      A scheduled courier pickup request for one or more labeled shipments.
+      Tied to an origin address and a courier-specific pickup window.
+    type: resource
+    related: [Shipment, Address]
+
+  - term: Tracking
+    definition: >-
+      A tracking record providing normalized status events across couriers.
+      Created automatically when a label is purchased or manually via the
+      trackings endpoint for externally generated labels.
+    type: resource
+    related: [Shipment, Label]
+
+  - term: Manifest
+    definition: >-
+      An end-of-day handover document grouping labeled shipments for a courier
+      pickup. Required by some couriers prior to dispatch.
+    type: resource
+    related: [Shipment, Pickup]
+
+  - term: Webhook
+    definition: >-
+      A subscriber endpoint to receive event notifications such as shipment
+      created, label generated, tracking updates, and pickup confirmations.
+    type: resource
+    related: [Shipment, Tracking]
+
+  - term: Insurance
+    definition: >-
+      Optional declared-value coverage applied to a shipment. Premium and
+      eligibility depend on courier, destination, and declared value.
+    type: concept
+    related: [Shipment, Item]
+
+  - term: Courier
+    definition: >-
+      A carrier integrated with Easyship (e.g., DHL Express, UPS, FedEx,
+      USPS, SF Express, Royal Mail). Identified by a courier_id and an
+      umbrella name.
+    type: concept
+    related: [Rate, Label]
+
+  - term: Country Alpha-2
+    definition: ISO 3166-1 alpha-2 country code used across address objects.
+    type: enum
+
+  - term: Tracking Status Values
+    definition: Normalized tracking status codes used across couriers.
+    type: enum
+    values:
+      label_generated: A label has been generated and shipment is awaiting handover
+      pending: Carrier acknowledgement pending
+      in_transit: Shipment is moving through the courier network
+      out_for_delivery: Shipment is out for final-mile delivery
+      delivered: Shipment has been delivered to the recipient
+      exception: A delivery exception has occurred
+      returned: Shipment is being returned to sender
+
+  - term: OAuth 2.0 Bearer
+    definition: >-
+      Authentication scheme for the Easyship API. Clients present a personal
+      access token or OAuth-issued bearer token in the Authorization header.
+      Token scopes control access to resources.
+    type: concept
+
+  - term: Sandbox vs Production
+    definition: >-
+      Easyship exposes both sandbox and production environments. Sandbox uses
+      api-sandbox.easyship.com and does not generate live labels or charges.
+    type: concept
+
+capabilities:
+  - name: Multi-Courier Rate Shopping
+    description: Compare rates across 250+ couriers in a single API call
+    apis: [Shipment, Rate]
+
+  - name: Label Generation
+    description: Purchase and download shipping labels with chosen courier
+    apis: [Label, Shipment]
+
+  - name: Duties and Taxes Calculation
+    description: Pre-calculate landed cost for cross-border shipments
+    apis: [Shipment, Item]
+
+  - name: Multi-Carrier Tracking
+    description: Normalized tracking events across all integrated couriers
+    apis: [Tracking]
+
+  - name: Pickup Scheduling
+    description: Schedule courier pickups for labeled shipments
+    apis: [Pickup]
+
+  - name: Returns Management
+    description: Create return labels for cross-border and domestic shipments
+    apis: [Label, Shipment]
+
+  - name: Webhook Notifications
+    description: Real-time event delivery for shipment and tracking lifecycle events
+    apis: [Webhook]
+
+  - name: Cross-Border Compliance
+    description: Customs documentation, HS codes, and incoterms handling
+    apis: [Shipment, Item, Manifest]
