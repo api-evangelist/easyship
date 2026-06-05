@@ -1,14 +1,12 @@
 aid: easyship
 name: Easyship
 description: >-
-  Easyship is a comprehensive all-in-one shipping platform headquartered in Hong Kong
-  that provides e-commerce businesses with a one-stop solution for their shipping needs.
-  From comparing rates and services across 250+ couriers to managing orders, generating
-  labels, scheduling pickups, calculating duties and taxes, and tracking shipments,
-  Easyship streamlines cross-border and domestic logistics for businesses of all sizes.
-  The Easyship REST API exposes the same shipping engine that powers the Easyship dashboard
-  and platform integrations to developers building custom commerce, fulfillment, and
-  logistics workflows.
+  Easyship is a comprehensive all-in-one shipping platform headquartered in Hong Kong that provides e-commerce
+  businesses with a one-stop solution for their shipping needs. From comparing rates and services across 250+ couriers
+  to managing orders, generating labels, scheduling pickups, calculating duties and taxes, and tracking shipments,
+  Easyship streamlines cross-border and domestic logistics for businesses of all sizes. The Easyship REST API exposes
+  the same shipping engine that powers the Easyship dashboard and platform integrations to developers building custom
+  commerce, fulfillment, and logistics workflows.
 url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/apis.yml
 type: Index
 position: Consumer
@@ -27,12 +25,11 @@ apis:
   - aid: easyship:easyship-api
     name: Easyship API
     description: >-
-      The Easyship API allows e-commerce platforms and merchants to programmatically
-      compare carrier rates across 250+ integrated couriers, generate shipping labels,
-      manage shipments and tracking, schedule courier pickups, handle returns, and
-      calculate duties and taxes for international parcels. Authentication uses OAuth 2.0
-      bearer tokens and the surface includes shipments, rates, labels, addresses, pickups,
-      trackings, manifests, webhooks, products, boxes, and insurance.
+      The Easyship API allows e-commerce platforms and merchants to programmatically compare carrier rates across 250+
+      integrated couriers, generate shipping labels, manage shipments and tracking, schedule courier pickups, handle
+      returns, and calculate duties and taxes for international parcels. Authentication uses OAuth 2.0 bearer tokens and
+      the surface includes shipments, rates, labels, addresses, pickups, trackings, manifests, webhooks, products,
+      boxes, and insurance.
     humanURL: https://developers.easyship.com/
     baseURL: https://api.easyship.com
     tags:
@@ -56,41 +53,35 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/openapi/easyship-openapi.yml
       - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
       - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
       - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
       - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
       - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
       - type: JSONStructure
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
       - type: JSONLD
         url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
       - type: SpectralRules
         url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
       - type: Vocabulary
         url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-shipments.yaml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-rates.yaml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-labels.yaml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-addresses.yaml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-pickups.yaml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-trackings.yaml
-      - type: NaftikoCapability
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/capabilities/easyship-webhooks.yaml
       - type: Example
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
       - type: Example
-        url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
       - type: RateLimits
