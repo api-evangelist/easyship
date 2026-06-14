@@ -1,0 +1,786 @@
+"""
+EasyShip GraphQL Schema
+Conceptual GraphQL schema for the Easyship multi-carrier shipping API.
+Source: https://developers.easyship.com/
+"""
+
+# ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum ShipmentStatusEnum {
+  CREATED
+  PENDING
+  LABEL_PURCHASED
+  PICKED_UP
+  IN_TRANSIT
+  OUT_FOR_DELIVERY
+  DELIVERED
+  FAILED_ATTEMPT
+  EXCEPTION
+  CANCELLED
+  RETURNED
+}
+
+enum CustomsTypeEnum {
+  GIFT
+  SALE
+  RETURN
+  SAMPLE
+  REPAIR
+  OTHER
+}
+
+enum HandledByEnum {
+  SHIPPER
+  RECIPIENT
+}
+
+enum ReturnStatusEnum {
+  CREATED
+  LABEL_GENERATED
+  IN_TRANSIT
+  RECEIVED
+  CANCELLED
+}
+
+enum WeightUnitEnum {
+  g
+  kg
+  lb
+  oz
+}
+
+enum DimensionUnitEnum {
+  cm
+  in
+}
+
+enum CurrencyEnum {
+  USD
+  HKD
+  SGD
+  AUD
+  GBP
+  EUR
+  CAD
+  JPY
+  CNY
+}
+
+enum WebhookEventEnum {
+  SHIPMENT_CREATED
+  SHIPMENT_CANCELLED
+  LABEL_PURCHASED
+  TRACKING_UPDATED
+  PICKUP_SCHEDULED
+  PICKUP_CANCELLED
+  RETURN_CREATED
+}
+
+# ─── Address & Contact Types ──────────────────────────────────────────────────
+
+"""Full name of the shipment recipient."""
+type RecipientName {
+  firstName: String!
+  lastName: String!
+  fullName: String
+}
+
+"""Phone contact for the recipient."""
+type RecipientPhone {
+  countryCode: String
+  number: String!
+}
+
+"""Email contact for the recipient."""
+type RecipientEmail {
+  address: String!
+  verified: Boolean
+}
+
+"""Origin address for a shipment."""
+type ShipperAddress {
+  id: ID
+  line1: String!
+  line2: String
+  city: String!
+  state: String
+  postalCode: String!
+  countryCode: String!
+  contactName: String
+  companyName: String
+  phone: String
+  email: String
+}
+
+"""Delivery destination address for a shipment."""
+type DestinationAddress {
+  id: ID
+  line1: String!
+  line2: String
+  city: String!
+  state: String
+  postalCode: String!
+  countryCode: String!
+  recipient: RecipientName
+  phone: RecipientPhone
+  email: RecipientEmail
+  isResidential: Boolean
+}
+
+# ─── Item Types ───────────────────────────────────────────────────────────────
+
+"""Stock keeping unit identifier for a product."""
+type ItemSKU {
+  sku: String!
+  barcode: String
+}
+
+"""Declared monetary value of an item for customs and insurance."""
+type ItemValue {
+  amount: Float!
+  currency: CurrencyEnum!
+}
+
+"""Weight measurement of an item."""
+type ItemWeight {
+  value: Float!
+  unit: WeightUnitEnum!
+}
+
+"""Physical dimensions (length, width, height) of an item."""
+type ItemDimension {
+  length: Float!
+  width: Float!
+  height: Float!
+  unit: DimensionUnitEnum!
+}
+
+"""Product description and category information for an item."""
+type ItemDetails {
+  description: String!
+  category: String
+  origin: String
+  hsTariffCode: HSTariffCode
+  url: String
+  imageUrl: String
+}
+
+"""A single line item within a shipment."""
+type ShipmentItem {
+  id: ID!
+  sku: ItemSKU
+  details: ItemDetails!
+  quantity: Int!
+  value: ItemValue!
+  weight: ItemWeight!
+  dimensions: ItemDimension
+  containsBattery: Boolean
+  containsLiquids: Boolean
+}
+
+# ─── Customs Types ────────────────────────────────────────────────────────────
+
+"""Harmonized System tariff classification code."""
+type HSTariffCode {
+  code: String!
+  description: String
+}
+
+"""Type of customs declaration."""
+type CustomsType {
+  type: CustomsTypeEnum!
+  label: String!
+}
+
+"""Declared value for customs purposes."""
+type DeclaredValue {
+  amount: Float!
+  currency: CurrencyEnum!
+}
+
+"""Item-level customs detail for a shipment."""
+type CustomsDetails {
+  item: ShipmentItem!
+  declaredValue: DeclaredValue!
+  originCountry: String!
+  hsTariffCode: HSTariffCode
+}
+
+"""Complete customs form data including incoterms."""
+type CustomsDeclaration {
+  incoterms: HandledByEnum!
+  declarationType: CustomsType!
+  invoiceNumber: String
+  licenseNumber: String
+  items: [CustomsDetails!]!
+}
+
+"""Customs declaration record for an international shipment."""
+type Customs {
+  id: ID!
+  shipmentId: ID!
+  declaration: CustomsDeclaration!
+  submittedAt: String
+}
+
+# ─── Fee & Rate Types ─────────────────────────────────────────────────────────
+
+"""Base shipping cost for a courier service."""
+type ShippingFee {
+  amount: Float!
+  currency: CurrencyEnum!
+}
+
+"""Fuel surcharge applied by a carrier."""
+type FuelFee {
+  amount: Float!
+  currency: CurrencyEnum!
+  percentage: Float
+}
+
+"""Fee for scheduled courier pickup."""
+type PickupFee {
+  amount: Float!
+  currency: CurrencyEnum!
+}
+
+"""Import duty charge for cross-border shipments."""
+type DutyFee {
+  amount: Float!
+  currency: CurrencyEnum!
+  estimatedOnly: Boolean
+}
+
+"""Tax charge (VAT/GST) for cross-border shipments."""
+type TaxFee {
+  amount: Float!
+  currency: CurrencyEnum!
+  taxType: String
+  estimatedOnly: Boolean
+}
+
+"""Optional insurance cost for a shipment."""
+type InsuranceFee {
+  amount: Float!
+  currency: CurrencyEnum!
+}
+
+"""Estimated transit and delivery time for a courier service."""
+type DeliveryTime {
+  min: Int
+  max: Int
+  unit: String!
+  guaranteed: Boolean
+}
+
+"""Carrier details embedded within a rate response."""
+type RateCarrier {
+  id: ID!
+  name: String!
+  logoUrl: String
+}
+
+"""Metadata about a rate quote including validity and conditions."""
+type RateInfo {
+  validUntil: String
+  notes: String
+  requiresInsurance: Boolean
+  requiresSignature: Boolean
+}
+
+"""Indicates whether duties/taxes are handled by shipper or recipient."""
+type HandledBy {
+  type: HandledByEnum!
+  description: String
+}
+
+"""Aggregated rate object combining all fees for a courier option."""
+type Rate {
+  id: ID!
+  carrier: RateCarrier!
+  service: CourierService!
+  shippingFee: ShippingFee!
+  fuelFee: FuelFee
+  pickupFee: PickupFee
+  dutyFee: DutyFee
+  taxFee: TaxFee
+  insuranceFee: InsuranceFee
+  totalFee: Float!
+  currency: CurrencyEnum!
+  deliveryTime: DeliveryTime!
+  handledBy: HandledBy!
+  info: RateInfo
+}
+
+# ─── Insurance Types ──────────────────────────────────────────────────────────
+
+"""Insurance coverage type and limits."""
+type Coverage {
+  type: String!
+  maxAmount: Float!
+  currency: CurrencyEnum!
+  exclusions: [String!]
+}
+
+"""Available insurance product for a shipment."""
+type InsuranceOption {
+  id: ID!
+  name: String!
+  coverage: Coverage!
+  fee: InsuranceFee!
+  provider: String
+}
+
+"""Declared insured value for a shipment."""
+type InsuredValue {
+  amount: Float!
+  currency: CurrencyEnum!
+  option: InsuranceOption
+}
+
+# ─── Carrier & Service Types ──────────────────────────────────────────────────
+
+"""A specific service offering from a carrier."""
+type CourierService {
+  id: ID!
+  name: String!
+  serviceCode: String!
+  type: String
+  description: String
+  trackingAvailable: Boolean
+  signatureRequired: Boolean
+}
+
+"""Quoted rate for a courier service for a given shipment."""
+type CourierRate {
+  service: CourierService!
+  rate: Rate!
+}
+
+"""Extended information about a carrier including service zones and features."""
+type CarrierDetails {
+  services: [CourierService!]!
+  supportedCountries: [String!]
+  maxWeightKg: Float
+  maxDimensionCm: Float
+  supportsPickup: Boolean
+  supportsDropoff: Boolean
+  supportsInsurance: Boolean
+}
+
+"""A courier integrated with Easyship."""
+type Carrier {
+  id: ID!
+  name: String!
+  code: String!
+  logoUrl: String
+  website: String
+  details: CarrierDetails
+}
+
+# ─── Label & Tracking Types ───────────────────────────────────────────────────
+
+"""URL pointing to a generated label document."""
+type LabelURL {
+  pdf: String
+  png: String
+  zpl: String
+}
+
+"""Shipping label generated for a shipment."""
+type Label {
+  id: ID!
+  shipmentId: ID!
+  trackingNumber: TrackingNumber!
+  url: LabelURL!
+  format: String
+  generatedAt: String!
+  expiresAt: String
+}
+
+"""Carrier-assigned tracking identifier."""
+type TrackingNumber {
+  number: String!
+  carrier: String!
+}
+
+"""A single event in the tracking history of a shipment."""
+type TrackingEvent {
+  timestamp: String!
+  status: String!
+  description: String!
+  location: String
+  statusCode: String
+}
+
+"""Public-facing tracking URL for a shipment."""
+type TrackingURL {
+  carrier: String
+  easyship: String
+}
+
+"""Current tracking status for a shipment."""
+type TrackingStatus {
+  shipmentId: ID!
+  trackingNumber: TrackingNumber!
+  currentStatus: ShipmentStatusEnum!
+  description: String
+  estimatedDelivery: String
+  events: [TrackingEvent!]!
+  trackingUrl: TrackingURL!
+  lastUpdated: String!
+}
+
+# ─── Box Types ────────────────────────────────────────────────────────────────
+
+"""Physical dimensions of a box."""
+type BoxDimension {
+  length: Float!
+  width: Float!
+  height: Float!
+  unit: DimensionUnitEnum!
+}
+
+"""A box or packaging unit used for a shipment."""
+type Box {
+  id: ID!
+  name: String!
+  dimensions: BoxDimension!
+  maxWeightKg: Float
+  isDefault: Boolean
+}
+
+# ─── Pickup Types ─────────────────────────────────────────────────────────────
+
+"""Date on which a pickup is scheduled."""
+type PickupDate {
+  date: String!
+  timezone: String!
+}
+
+"""Time window within a pickup date when a carrier will collect."""
+type PickupWindow {
+  from: String!
+  to: String!
+}
+
+"""Details of a scheduled pickup including address and contact."""
+type PickupDetails {
+  address: ShipperAddress!
+  contactName: String!
+  contactPhone: String!
+  pickupDate: PickupDate!
+  pickupWindow: PickupWindow!
+  specialInstructions: String
+}
+
+"""A scheduled pickup request submitted to a carrier."""
+type PickupRequest {
+  id: ID!
+  carrier: Carrier!
+  details: PickupDetails!
+  shipmentIds: [ID!]!
+  confirmationNumber: String
+  status: String!
+  createdAt: String!
+}
+
+"""A carrier dropoff location where shipments can be self-delivered."""
+type DropoffPoint {
+  id: ID!
+  carrier: Carrier!
+  name: String!
+  address: String!
+  city: String!
+  postalCode: String!
+  countryCode: String!
+  openingHours: String
+  distanceKm: Float
+}
+
+# ─── Return Types ─────────────────────────────────────────────────────────────
+
+"""Current status of a return shipment."""
+type ReturnStatus {
+  code: ReturnStatusEnum!
+  description: String
+  updatedAt: String
+}
+
+"""Label generated for a return shipment."""
+type ReturnLabel {
+  id: ID!
+  url: LabelURL!
+  trackingNumber: TrackingNumber
+  generatedAt: String!
+}
+
+"""A return shipment record linked to an original forward shipment."""
+type ReturnShipment {
+  id: ID!
+  originalShipmentId: ID!
+  returnAddress: ShipperAddress!
+  items: [ShipmentItem!]!
+  label: ReturnLabel
+  status: ReturnStatus!
+  createdAt: String!
+  reason: String
+}
+
+# ─── Shipment Types ───────────────────────────────────────────────────────────
+
+"""Current status code and description for a shipment lifecycle."""
+type ShipmentStatus {
+  code: ShipmentStatusEnum!
+  description: String
+  updatedAt: String!
+}
+
+"""Extended metadata for a shipment including platform and billing references."""
+type ShipmentDetails {
+  platformOrderId: String
+  platformOrderReference: String
+  billingAccountId: String
+  notes: String
+  tags: [String!]
+  incoterms: HandledByEnum
+}
+
+"""A shipment record including origin, destination, items, and carrier assignment."""
+type Shipment {
+  id: ID!
+  status: ShipmentStatus!
+  shipper: ShipperAddress!
+  destination: DestinationAddress!
+  items: [ShipmentItem!]!
+  box: Box
+  details: ShipmentDetails
+  selectedCarrier: Carrier
+  selectedService: CourierService
+  label: Label
+  tracking: TrackingStatus
+  customs: Customs
+  insurance: InsuredValue
+  availableRates: [Rate!]
+  createdAt: String!
+  updatedAt: String!
+}
+
+# ─── Auth Types ───────────────────────────────────────────────────────────────
+
+"""An API key credential for authenticating to the Easyship API."""
+type APIKey {
+  id: ID!
+  name: String!
+  key: String
+  createdAt: String!
+  lastUsedAt: String
+  scopes: [String!]
+}
+
+"""OAuth 2.0 bearer token used to authorize API requests."""
+type Token {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+  scope: String
+}
+
+# ─── Webhook Types ────────────────────────────────────────────────────────────
+
+"""A webhook subscription for receiving Easyship event notifications."""
+type Webhook {
+  id: ID!
+  url: String!
+  events: [WebhookEventEnum!]!
+  active: Boolean!
+  secret: String
+  createdAt: String!
+  updatedAt: String!
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input AddressInput {
+  line1: String!
+  line2: String
+  city: String!
+  state: String
+  postalCode: String!
+  countryCode: String!
+  contactName: String
+  companyName: String
+  phone: String
+  email: String
+}
+
+input ItemInput {
+  description: String!
+  quantity: Int!
+  valueAmount: Float!
+  valueCurrency: CurrencyEnum!
+  weightValue: Float!
+  weightUnit: WeightUnitEnum!
+  sku: String
+  hsTariffCode: String
+  originCountry: String
+  containsBattery: Boolean
+  containsLiquids: Boolean
+}
+
+input RateInput {
+  originCountryCode: String!
+  originPostalCode: String!
+  destinationCountryCode: String!
+  destinationPostalCode: String!
+  items: [ItemInput!]!
+  boxId: ID
+  incoterms: HandledByEnum
+  insuranceRequested: Boolean
+}
+
+input CreateShipmentInput {
+  shipper: AddressInput!
+  destination: AddressInput!
+  items: [ItemInput!]!
+  boxId: ID
+  courierId: ID
+  serviceId: ID
+  incoterms: HandledByEnum
+  insuranceRequested: Boolean
+  platformOrderId: String
+  notes: String
+}
+
+input UpdateShipmentInput {
+  destination: AddressInput
+  notes: String
+  tags: [String!]
+}
+
+input CreatePickupInput {
+  carrierId: ID!
+  shipmentIds: [ID!]!
+  pickupDate: String!
+  pickupFrom: String!
+  pickupTo: String!
+  timezone: String!
+  contactName: String!
+  contactPhone: String!
+  specialInstructions: String
+}
+
+input CreateReturnInput {
+  originalShipmentId: ID!
+  returnAddress: AddressInput!
+  items: [ItemInput!]!
+  reason: String
+}
+
+input BoxInput {
+  name: String!
+  lengthCm: Float!
+  widthCm: Float!
+  heightCm: Float!
+  maxWeightKg: Float
+  isDefault: Boolean
+}
+
+input WebhookInput {
+  url: String!
+  events: [WebhookEventEnum!]!
+  active: Boolean
+  secret: String
+}
+
+# ─── Root Types ───────────────────────────────────────────────────────────────
+
+type Query {
+  """Fetch a single shipment by ID."""
+  shipment(id: ID!): Shipment
+
+  """List shipments with optional status filter and pagination."""
+  shipments(status: ShipmentStatusEnum, limit: Int, offset: Int): [Shipment!]!
+
+  """Get available courier rates for a shipment specification."""
+  rates(input: RateInput!): [Rate!]!
+
+  """Fetch a single carrier by ID."""
+  carrier(id: ID!): Carrier
+
+  """List all carriers available in the account."""
+  carriers: [Carrier!]!
+
+  """Retrieve the label for a shipment."""
+  label(shipmentId: ID!): Label
+
+  """Get tracking status and event history for a tracking number."""
+  tracking(trackingNumber: String!): TrackingStatus
+
+  """Fetch a pickup request by ID."""
+  pickupRequest(id: ID!): PickupRequest
+
+  """List carrier dropoff points near a location."""
+  dropoffPoints(countryCode: String!, postalCode: String): [DropoffPoint!]!
+
+  """Fetch a saved box configuration by ID."""
+  box(id: ID!): Box
+
+  """List all saved box configurations."""
+  boxes: [Box!]!
+
+  """Fetch a return shipment by ID."""
+  returnShipment(id: ID!): ReturnShipment
+
+  """Fetch a webhook subscription by ID."""
+  webhook(id: ID!): Webhook
+
+  """List all webhook subscriptions."""
+  webhooks: [Webhook!]!
+}
+
+type Mutation {
+  """Create a new shipment record."""
+  createShipment(input: CreateShipmentInput!): Shipment!
+
+  """Update shipment details."""
+  updateShipment(id: ID!, input: UpdateShipmentInput!): Shipment!
+
+  """Cancel a shipment."""
+  cancelShipment(id: ID!): Shipment!
+
+  """Purchase a label for a shipment with a selected courier."""
+  buyLabel(shipmentId: ID!, courierId: ID!): Label!
+
+  """Schedule a courier pickup."""
+  createPickupRequest(input: CreatePickupInput!): PickupRequest!
+
+  """Cancel a scheduled pickup."""
+  cancelPickupRequest(id: ID!): PickupRequest!
+
+  """Initiate a return shipment."""
+  createReturnShipment(input: CreateReturnInput!): ReturnShipment!
+
+  """Save a new box configuration."""
+  createBox(input: BoxInput!): Box!
+
+  """Update a box configuration."""
+  updateBox(id: ID!, input: BoxInput!): Box!
+
+  """Delete a box configuration."""
+  deleteBox(id: ID!): Boolean!
+
+  """Create a new webhook subscription."""
+  createWebhook(input: WebhookInput!): Webhook!
+
+  """Update a webhook subscription."""
+  updateWebhook(id: ID!, input: WebhookInput!): Webhook!
+
+  """Remove a webhook subscription."""
+  deleteWebhook(id: ID!): Boolean!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
