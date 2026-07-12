@@ -84,6 +84,12 @@ apis:
   - url: graphql/easyship-graphql.md
     type: GraphQL
 common:
+- type: VulnerabilityDisclosure
+  url: security/easyship-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/easyship-domain-security.yml
+- type: Authentication
+  url: authentication/easyship-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/easyship
 - type: LinkedIn
