@@ -84,6 +84,8 @@ apis:
   - url: graphql/easyship-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/easyship-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/easyship-vulnerability-disclosure.yml
 - type: DomainSecurity
