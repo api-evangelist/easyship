@@ -1,0 +1,64 @@
+openapi: 3.1.0
+info:
+  title: Easyship Addresses Labels API
+  description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
+
+    shipments, labels, addresses, pickups, trackings, products, boxes,
+
+    manifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer
+
+    tokens. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2024-09
+  contact:
+    name: Easyship
+    url: https://developers.easyship.com/
+servers:
+- url: https://api.easyship.com/2024-09
+  description: Production
+- url: https://api-sandbox.easyship.com
+  description: Sandbox
+security:
+- BearerAuth: []
+tags:
+- name: Labels
+paths:
+  /labels:
+    post:
+      summary: Create labels for one or more shipments
+      operationId: createLabels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shipments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      easyship_shipment_id:
+                        type: string
+                      courier_id:
+                        type: string
+      responses:
+        '200':
+          description: Labels created
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Labels
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

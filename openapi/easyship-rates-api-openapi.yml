@@ -1,0 +1,147 @@
+openapi: 3.1.0
+info:
+  title: Easyship Addresses Rates API
+  description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
+
+    shipments, labels, addresses, pickups, trackings, products, boxes,
+
+    manifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer
+
+    tokens. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2024-09
+  contact:
+    name: Easyship
+    url: https://developers.easyship.com/
+servers:
+- url: https://api.easyship.com/2024-09
+  description: Production
+- url: https://api-sandbox.easyship.com
+  description: Sandbox
+security:
+- BearerAuth: []
+tags:
+- name: Rates
+paths:
+  /rates:
+    post:
+      summary: Request shipping rate quotes
+      operationId: getRates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                origin_address:
+                  $ref: '#/components/schemas/Address'
+                destination_address:
+                  $ref: '#/components/schemas/Address'
+                parcels:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Parcel'
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: List of rates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Rate'
+      tags:
+      - Rates
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: integer
+        actual_weight:
+          type: number
+        declared_currency:
+          type: string
+        declared_customs_value:
+          type: number
+        sku:
+          type: string
+        hs_code:
+          type: string
+        origin_country_alpha2:
+          type: string
+    Rate:
+      type: object
+      properties:
+        courier_id:
+          type: string
+        courier_name:
+          type: string
+        total_charge:
+          type: number
+        currency:
+          type: string
+        min_delivery_time:
+          type: integer
+        max_delivery_time:
+          type: integer
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+        line_1:
+          type: string
+        line_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country_alpha2:
+          type: string
+        postal_code:
+          type: string
+        contact_name:
+          type: string
+        contact_phone:
+          type: string
+        contact_email:
+          type: string
+        company_name:
+          type: string
+    Parcel:
+      type: object
+      properties:
+        box:
+          type: object
+          properties:
+            length:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+            slug:
+              type: string
+        total_actual_weight:
+          type: number
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

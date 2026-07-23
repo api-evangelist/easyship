@@ -1,0 +1,220 @@
+openapi: 3.1.0
+info:
+  title: Easyship Addresses Shipments API
+  description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
+
+    shipments, labels, addresses, pickups, trackings, products, boxes,
+
+    manifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer
+
+    tokens. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2024-09
+  contact:
+    name: Easyship
+    url: https://developers.easyship.com/
+servers:
+- url: https://api.easyship.com/2024-09
+  description: Production
+- url: https://api-sandbox.easyship.com
+  description: Sandbox
+security:
+- BearerAuth: []
+tags:
+- name: Shipments
+paths:
+  /shipments:
+    post:
+      summary: Create a shipment
+      operationId: createShipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Shipment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+    get:
+      summary: List shipments
+      operationId: listShipments
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Shipments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+  /shipments/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Show a shipment
+      operationId: getShipment
+      responses:
+        '200':
+          description: Shipment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+    patch:
+      summary: Update a shipment
+      operationId: updateShipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Updated shipment
+      tags:
+      - Shipments
+    delete:
+      summary: Delete a shipment
+      operationId: deleteShipment
+      responses:
+        '204':
+          description: Deleted
+      tags:
+      - Shipments
+  /shipments/{id}/cancel:
+    post:
+      summary: Cancel a shipment
+      operationId: cancelShipment
+      parameters:
+      - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Cancellation accepted
+      tags:
+      - Shipments
+components:
+  schemas:
+    Parcel:
+      type: object
+      properties:
+        box:
+          type: object
+          properties:
+            length:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+            slug:
+              type: string
+        total_actual_weight:
+          type: number
+    Shipment:
+      type: object
+      properties:
+        id:
+          type: string
+        easyship_shipment_id:
+          type: string
+        status:
+          type: string
+        platform_order_number:
+          type: string
+        origin_address:
+          $ref: '#/components/schemas/Address'
+        destination_address:
+          $ref: '#/components/schemas/Address'
+        parcels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parcel'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+        line_1:
+          type: string
+        line_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country_alpha2:
+          type: string
+        postal_code:
+          type: string
+        contact_name:
+          type: string
+        contact_phone:
+          type: string
+        contact_email:
+          type: string
+        company_name:
+          type: string
+    Item:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: integer
+        actual_weight:
+          type: number
+        declared_currency:
+          type: string
+        declared_customs_value:
+          type: number
+        sku:
+          type: string
+        hs_code:
+          type: string
+        origin_country_alpha2:
+          type: string
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

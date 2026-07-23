@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Easyship Addresses Trackings API
+  description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
+
+    shipments, labels, addresses, pickups, trackings, products, boxes,
+
+    manifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer
+
+    tokens. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2024-09
+  contact:
+    name: Easyship
+    url: https://developers.easyship.com/
+servers:
+- url: https://api.easyship.com/2024-09
+  description: Production
+- url: https://api-sandbox.easyship.com
+  description: Sandbox
+security:
+- BearerAuth: []
+tags:
+- name: Trackings
+paths:
+  /trackings:
+    post:
+      summary: Create a tracking
+      operationId: createTracking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                courier_umbrella_name:
+                  type: string
+                tracking_number:
+                  type: string
+      responses:
+        '201':
+          description: Tracking created
+      tags:
+      - Trackings
+    get:
+      summary: List trackings
+      operationId: listTrackings
+      responses:
+        '200':
+          description: Trackings
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Trackings
+  /trackings/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Show a tracking
+      operationId: getTracking
+      responses:
+        '200':
+          description: Tracking
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Trackings
+components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

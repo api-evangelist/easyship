@@ -1,0 +1,63 @@
+openapi: 3.1.0
+info:
+  title: Easyship Addresses Pickups API
+  description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
+
+    shipments, labels, addresses, pickups, trackings, products, boxes,
+
+    manifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer
+
+    tokens. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2024-09
+  contact:
+    name: Easyship
+    url: https://developers.easyship.com/
+servers:
+- url: https://api.easyship.com/2024-09
+  description: Production
+- url: https://api-sandbox.easyship.com
+  description: Sandbox
+security:
+- BearerAuth: []
+tags:
+- name: Pickups
+paths:
+  /pickups:
+    post:
+      summary: Create a pickup
+      operationId: createPickup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Pickup created
+      tags:
+      - Pickups
+    get:
+      summary: List pickups
+      operationId: listPickups
+      responses:
+        '200':
+          description: Pickups
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Pickups
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
