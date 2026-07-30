@@ -10,9 +10,22 @@ description: Easyship is a comprehensive all-in-one shipping platform headquarte
   custom commerce, fulfillment, and logistics workflows.
 url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/apis.yml
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/easyship.png
 tags:
 - Shipping
 - Logistics
@@ -23,22 +36,16 @@ created: '2025-03-01'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-- aid: easyship:easyship-api
-  name: Easyship API
-  description: The Easyship API allows e-commerce platforms and merchants to programmatically
-    compare carrier rates across 250+ integrated couriers, generate shipping labels,
-    manage shipments and tracking, schedule courier pickups, handle returns, and calculate
-    duties and taxes for international parcels. Authentication uses OAuth 2.0 bearer
-    tokens and the surface includes shipments, rates, labels, addresses, pickups,
-    trackings, manifests, webhooks, products, boxes, and insurance.
+- aid: easyship:easyship-addresses-api
+  name: Easyship Addresses API
+  description: The Addresses API from Easyship — 2 operation(s) for addresses.
   humanURL: https://developers.easyship.com/
   baseURL: https://api.easyship.com
   tags:
-  - Shipping
-  - Logistics
-  - Ecommerce
-  - CrossBorder
+  - Addresses
   properties:
+  - type: OpenAPI
+    url: openapi/easyship-addresses-api-openapi.yml
   - type: Documentation
     url: https://developers.easyship.com/docs
   - type: Reference
@@ -51,38 +58,446 @@ apis:
     url: https://developers.easyship.com/recipes
   - type: ChangeLog
     url: https://developers.easyship.com/changelog
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/openapi/easyship-openapi.yml
   - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
   - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
   - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
   - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
   - type: JSONSchema
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
   - type: JSONStructure
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
   - type: JSONLD
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
   - type: SpectralRules
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
   - type: Vocabulary
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
   - type: Examples
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
   - type: Examples
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
   - type: Plans
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
   - type: RateLimits
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
   - type: FinOps
-    url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - url: graphql/easyship-graphql.md
-    type: GraphQL
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
+- aid: easyship:easyship-labels-api
+  name: Easyship Labels API
+  description: The Labels API from Easyship — 1 operation(s) for labels.
+  humanURL: https://developers.easyship.com/
+  baseURL: https://api.easyship.com
+  tags:
+  - Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/easyship-labels-api-openapi.yml
+  - type: Documentation
+    url: https://developers.easyship.com/docs
+  - type: Reference
+    url: https://developers.easyship.com/reference
+  - type: GettingStarted
+    url: https://developers.easyship.com/reference/getting-started
+  - type: Authentication
+    url: https://developers.easyship.com/reference/authentication
+  - type: Recipes
+    url: https://developers.easyship.com/recipes
+  - type: ChangeLog
+    url: https://developers.easyship.com/changelog
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
+- aid: easyship:easyship-pickups-api
+  name: Easyship Pickups API
+  description: The Pickups API from Easyship — 1 operation(s) for pickups.
+  humanURL: https://developers.easyship.com/
+  baseURL: https://api.easyship.com
+  tags:
+  - Pickups
+  properties:
+  - type: OpenAPI
+    url: openapi/easyship-pickups-api-openapi.yml
+  - type: Documentation
+    url: https://developers.easyship.com/docs
+  - type: Reference
+    url: https://developers.easyship.com/reference
+  - type: GettingStarted
+    url: https://developers.easyship.com/reference/getting-started
+  - type: Authentication
+    url: https://developers.easyship.com/reference/authentication
+  - type: Recipes
+    url: https://developers.easyship.com/recipes
+  - type: ChangeLog
+    url: https://developers.easyship.com/changelog
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
+- aid: easyship:easyship-rates-api
+  name: Easyship Rates API
+  description: The Rates API from Easyship — 1 operation(s) for rates.
+  humanURL: https://developers.easyship.com/
+  baseURL: https://api.easyship.com
+  tags:
+  - Rates
+  properties:
+  - type: OpenAPI
+    url: openapi/easyship-rates-api-openapi.yml
+  - type: Documentation
+    url: https://developers.easyship.com/docs
+  - type: Reference
+    url: https://developers.easyship.com/reference
+  - type: GettingStarted
+    url: https://developers.easyship.com/reference/getting-started
+  - type: Authentication
+    url: https://developers.easyship.com/reference/authentication
+  - type: Recipes
+    url: https://developers.easyship.com/recipes
+  - type: ChangeLog
+    url: https://developers.easyship.com/changelog
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
+- aid: easyship:easyship-shipments-api
+  name: Easyship Shipments API
+  description: The Shipments API from Easyship — 3 operation(s) for shipments.
+  humanURL: https://developers.easyship.com/
+  baseURL: https://api.easyship.com
+  tags:
+  - Shipments
+  properties:
+  - type: OpenAPI
+    url: openapi/easyship-shipments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.easyship.com/docs
+  - type: Reference
+    url: https://developers.easyship.com/reference
+  - type: GettingStarted
+    url: https://developers.easyship.com/reference/getting-started
+  - type: Authentication
+    url: https://developers.easyship.com/reference/authentication
+  - type: Recipes
+    url: https://developers.easyship.com/recipes
+  - type: ChangeLog
+    url: https://developers.easyship.com/changelog
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
+- aid: easyship:easyship-trackings-api
+  name: Easyship Trackings API
+  description: The Trackings API from Easyship — 2 operation(s) for trackings.
+  humanURL: https://developers.easyship.com/
+  baseURL: https://api.easyship.com
+  tags:
+  - Trackings
+  properties:
+  - type: OpenAPI
+    url: openapi/easyship-trackings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.easyship.com/docs
+  - type: Reference
+    url: https://developers.easyship.com/reference
+  - type: GettingStarted
+    url: https://developers.easyship.com/reference/getting-started
+  - type: Authentication
+    url: https://developers.easyship.com/reference/authentication
+  - type: Recipes
+    url: https://developers.easyship.com/recipes
+  - type: ChangeLog
+    url: https://developers.easyship.com/changelog
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
+- aid: easyship:easyship-webhooks-api
+  name: Easyship Webhooks API
+  description: The Webhooks API from Easyship — 1 operation(s) for webhooks.
+  humanURL: https://developers.easyship.com/
+  baseURL: https://api.easyship.com
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/easyship-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developers.easyship.com/docs
+  - type: Reference
+    url: https://developers.easyship.com/reference
+  - type: GettingStarted
+    url: https://developers.easyship.com/reference/getting-started
+  - type: Authentication
+    url: https://developers.easyship.com/reference/authentication
+  - type: Recipes
+    url: https://developers.easyship.com/recipes
+  - type: ChangeLog
+    url: https://developers.easyship.com/changelog
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
+  - type: GraphQL
+    url: graphql/easyship-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/easyship-agentic-access.yml
