@@ -1,0 +1,26 @@
+{
+  "provider": "easyship",
+  "sources": [
+    "easyship-addresses-api-openapi.yml",
+    "easyship-labels-api-openapi.yml",
+    "easyship-pickups-api-openapi.yml",
+    "easyship-rates-api-openapi.yml",
+    "easyship-shipments-api-openapi.yml",
+    "easyship-trackings-api-openapi.yml",
+    "easyship-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "easyship-addresses-api-openapi.yml",
+    "easyship-labels-api-openapi.yml",
+    "easyship-pickups-api-openapi.yml",
+    "easyship-rates-api-openapi.yml",
+    "easyship-shipments-api-openapi.yml",
+    "easyship-trackings-api-openapi.yml",
+    "easyship-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

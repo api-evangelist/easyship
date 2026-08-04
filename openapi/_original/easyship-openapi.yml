@@ -1,0 +1,432 @@
+openapi: 3.1.0
+info:
+  title: Easyship API
+  description: |
+    REST API for the Easyship multi-courier shipping platform. Covers rates,
+    shipments, labels, addresses, pickups, trackings, products, boxes,
+    manifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer
+    tokens. This specification is a best-effort, documentation-derived
+    description and may omit fields.
+  version: '2024-09'
+  contact:
+    name: Easyship
+    url: https://developers.easyship.com/
+servers:
+  - url: https://api.easyship.com/2024-09
+    description: Production
+  - url: https://api-sandbox.easyship.com
+    description: Sandbox
+security:
+  - BearerAuth: []
+paths:
+  /rates:
+    post:
+      summary: Request shipping rate quotes
+      operationId: getRates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                origin_address:
+                  $ref: '#/components/schemas/Address'
+                destination_address:
+                  $ref: '#/components/schemas/Address'
+                parcels:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Parcel'
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: List of rates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Rate'
+  /shipments:
+    post:
+      summary: Create a shipment
+      operationId: createShipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Shipment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+    get:
+      summary: List shipments
+      operationId: listShipments
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: per_page
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Shipments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Shipment'
+  /shipments/{id}:
+    parameters:
+      - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Show a shipment
+      operationId: getShipment
+      responses:
+        '200':
+          description: Shipment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+    patch:
+      summary: Update a shipment
+      operationId: updateShipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Updated shipment
+    delete:
+      summary: Delete a shipment
+      operationId: deleteShipment
+      responses:
+        '204':
+          description: Deleted
+  /shipments/{id}/cancel:
+    post:
+      summary: Cancel a shipment
+      operationId: cancelShipment
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Cancellation accepted
+  /labels:
+    post:
+      summary: Create labels for one or more shipments
+      operationId: createLabels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shipments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      easyship_shipment_id:
+                        type: string
+                      courier_id:
+                        type: string
+      responses:
+        '200':
+          description: Labels created
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /addresses:
+    post:
+      summary: Create an address
+      operationId: createAddress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: List addresses
+      operationId: listAddresses
+      responses:
+        '200':
+          description: Addresses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  addresses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Address'
+  /addresses/{id}:
+    parameters:
+      - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Show an address
+      operationId: getAddress
+      responses:
+        '200':
+          description: Address
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+    patch:
+      summary: Update an address
+      operationId: updateAddress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '200':
+          description: Updated
+  /pickups:
+    post:
+      summary: Create a pickup
+      operationId: createPickup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Pickup created
+    get:
+      summary: List pickups
+      operationId: listPickups
+      responses:
+        '200':
+          description: Pickups
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /trackings:
+    post:
+      summary: Create a tracking
+      operationId: createTracking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                courier_umbrella_name:
+                  type: string
+                tracking_number:
+                  type: string
+      responses:
+        '201':
+          description: Tracking created
+    get:
+      summary: List trackings
+      operationId: listTrackings
+      responses:
+        '200':
+          description: Trackings
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /trackings/{id}:
+    parameters:
+      - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Show a tracking
+      operationId: getTracking
+      responses:
+        '200':
+          description: Tracking
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /webhooks:
+    post:
+      summary: Create a webhook
+      operationId: createWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+                events:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Webhook created
+    get:
+      summary: List webhooks
+      operationId: listWebhooks
+      responses:
+        '200':
+          description: Webhooks
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  schemas:
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+        line_1:
+          type: string
+        line_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country_alpha2:
+          type: string
+        postal_code:
+          type: string
+        contact_name:
+          type: string
+        contact_phone:
+          type: string
+        contact_email:
+          type: string
+        company_name:
+          type: string
+    Parcel:
+      type: object
+      properties:
+        box:
+          type: object
+          properties:
+            length:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+            slug:
+              type: string
+        total_actual_weight:
+          type: number
+    Item:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: integer
+        actual_weight:
+          type: number
+        declared_currency:
+          type: string
+        declared_customs_value:
+          type: number
+        sku:
+          type: string
+        hs_code:
+          type: string
+        origin_country_alpha2:
+          type: string
+    Rate:
+      type: object
+      properties:
+        courier_id:
+          type: string
+        courier_name:
+          type: string
+        total_charge:
+          type: number
+        currency:
+          type: string
+        min_delivery_time:
+          type: integer
+        max_delivery_time:
+          type: integer
+    Shipment:
+      type: object
+      properties:
+        id:
+          type: string
+        easyship_shipment_id:
+          type: string
+        status:
+          type: string
+        platform_order_number:
+          type: string
+        origin_address:
+          $ref: '#/components/schemas/Address'
+        destination_address:
+          $ref: '#/components/schemas/Address'
+        parcels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parcel'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
