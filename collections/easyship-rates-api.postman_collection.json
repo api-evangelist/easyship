@@ -1,0 +1,137 @@
+{
+  "item": [
+    {
+      "id": "c4c55156-ae62-48a1-a1e6-4169785fd825",
+      "name": "Rates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e02df3ee-3a88-48f1-a0ae-f1ddb4c17b01",
+          "name": "Request shipping rate quotes",
+          "request": {
+            "name": "Request shipping rate quotes",
+            "description": {},
+            "url": {
+              "path": [
+                "rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"origin_address\": {\n    \"id\": \"<string>\",\n    \"line_1\": \"<string>\",\n    \"line_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_alpha2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"contact_name\": \"<string>\",\n    \"contact_phone\": \"<string>\",\n    \"contact_email\": \"<string>\",\n    \"company_name\": \"<string>\"\n  },\n  \"destination_address\": {\n    \"id\": \"<string>\",\n    \"line_1\": \"<string>\",\n    \"line_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_alpha2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"contact_name\": \"<string>\",\n    \"contact_phone\": \"<string>\",\n    \"contact_email\": \"<string>\",\n    \"company_name\": \"<string>\"\n  },\n  \"parcels\": [\n    {\n      \"box\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"slug\": \"<string>\"\n      },\n      \"total_actual_weight\": \"<number>\"\n    },\n    {\n      \"box\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"slug\": \"<string>\"\n      },\n      \"total_actual_weight\": \"<number>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"actual_weight\": \"<number>\",\n      \"declared_currency\": \"<string>\",\n      \"declared_customs_value\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"hs_code\": \"<string>\",\n      \"origin_country_alpha2\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"actual_weight\": \"<number>\",\n      \"declared_currency\": \"<string>\",\n      \"declared_customs_value\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"hs_code\": \"<string>\",\n      \"origin_country_alpha2\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc8b4efc-04e3-4eee-96d5-f3a6a2c4d87a",
+              "name": "List of rates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin_address\": {\n    \"id\": \"string\",\n    \"line_1\": \"string\",\n    \"line_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"country_alpha2\": \"string\",\n    \"postal_code\": \"string\",\n    \"contact_name\": \"string\",\n    \"contact_phone\": \"string\",\n    \"contact_email\": \"string\",\n    \"company_name\": \"string\"\n  },\n  \"destination_address\": {\n    \"id\": \"string\",\n    \"line_1\": \"string\",\n    \"line_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"country_alpha2\": \"string\",\n    \"postal_code\": \"string\",\n    \"contact_name\": \"string\",\n    \"contact_phone\": \"string\",\n    \"contact_email\": \"string\",\n    \"company_name\": \"string\"\n  },\n  \"parcels\": [\n    {\n      \"box\": {\n        \"length\": 5689.3173137639715,\n        \"width\": 8748.572126781448,\n        \"height\": 4448.101822333456,\n        \"slug\": \"string\"\n      },\n      \"total_actual_weight\": 5766.678831035853\n    },\n    {\n      \"box\": {\n        \"length\": 5754.068544731145,\n        \"width\": 9457.813972437063,\n        \"height\": 3057.7141730091316,\n        \"slug\": \"string\"\n      },\n      \"total_actual_weight\": 886.590425383259\n    }\n  ],\n  \"items\": [\n    {\n      \"description\": \"string\",\n      \"quantity\": 8715,\n      \"actual_weight\": 7540.4082773788805,\n      \"declared_currency\": \"string\",\n      \"declared_customs_value\": 7657.175753759346,\n      \"sku\": \"string\",\n      \"hs_code\": \"string\",\n      \"origin_country_alpha2\": \"string\"\n    },\n    {\n      \"description\": \"string\",\n      \"quantity\": 6006,\n      \"actual_weight\": 8637.736222383304,\n      \"declared_currency\": \"string\",\n      \"declared_customs_value\": 9503.063228049841,\n      \"sku\": \"string\",\n      \"hs_code\": \"string\",\n      \"origin_country_alpha2\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rates\": [\n    {\n      \"courier_id\": \"string\",\n      \"courier_name\": \"string\",\n      \"total_charge\": 1704.582301354638,\n      \"currency\": \"string\",\n      \"min_delivery_time\": 6261,\n      \"max_delivery_time\": 7714\n    },\n    {\n      \"courier_id\": \"string\",\n      \"courier_name\": \"string\",\n      \"total_charge\": 5867.038332166669,\n      \"currency\": \"string\",\n      \"min_delivery_time\": 7121,\n      \"max_delivery_time\": 160\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.easyship.com/2024-09",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "27cb4115-ceb8-43fd-8096-7a131f34e64a",
+    "name": "Easyship Addresses Rates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: Easyship",
+      "type": "text/plain"
+    }
+  }
+}

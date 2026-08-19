@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Easyship Addresses Trackings API",
+    "version": "2024-09"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trackings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List trackings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easyship.com/2024-09/trackings"
+          },
+          "docs": "List trackings"
+        },
+        {
+          "info": {
+            "name": "Create a tracking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easyship.com/2024-09/trackings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a tracking"
+        },
+        {
+          "info": {
+            "name": "Show a tracking",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easyship.com/2024-09/trackings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Show a tracking"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

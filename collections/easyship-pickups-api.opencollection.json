@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Easyship Addresses Pickups API",
+    "version": "2024-09"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pickups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pickups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easyship.com/2024-09/pickups"
+          },
+          "docs": "List pickups"
+        },
+        {
+          "info": {
+            "name": "Create a pickup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easyship.com/2024-09/pickups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pickup"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
