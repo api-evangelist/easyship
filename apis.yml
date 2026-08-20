@@ -29,6 +29,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/easyship.p
 tags:
 - Shipping
 - Logistics
+- E-Commerce
+- Fulfillment
+- Cross-Border
+tags_raw:
+- Shipping
+- Logistics
 - Ecommerce
 - Fulfillment
 - CrossBorder
@@ -438,6 +444,8 @@ apis:
   humanURL: https://developers.easyship.com/
   baseURL: https://api.easyship.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
