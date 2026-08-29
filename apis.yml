@@ -10,6 +10,18 @@ description: Easyship is a comprehensive all-in-one shipping platform headquarte
   custom commerce, fulfillment, and logistics workflows.
 url: https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/apis.yml
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
