@@ -519,6 +519,9 @@ apis:
   - type: GraphQL
     url: graphql/easyship-graphql.md
 common:
+- type: CapabilityMap
+  url: capabilities/easyship-capability-edges.yml
+  name: Easyship Business Capability Map
 - type: AgenticAccess
   url: agentic-access/easyship-agentic-access.yml
 - type: VulnerabilityDisclosure
