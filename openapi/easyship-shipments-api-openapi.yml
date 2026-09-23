@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Easyship Addresses Shipments API
+  title: Easyship Shipments API
   description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
 
     shipments, labels, addresses, pickups, trackings, products, boxes,
@@ -9,9 +9,7 @@ info:
 
     tokens. This specification is a best-effort, documentation-derived
 
-    description and may omit fields.
-
-    '
+    description and may omit fields.'
   version: 2024-09
   contact:
     name: Easyship
@@ -122,46 +120,14 @@ paths:
       tags:
       - Shipments
 components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   schemas:
-    Parcel:
-      type: object
-      properties:
-        box:
-          type: object
-          properties:
-            length:
-              type: number
-            width:
-              type: number
-            height:
-              type: number
-            slug:
-              type: string
-        total_actual_weight:
-          type: number
-    Shipment:
-      type: object
-      properties:
-        id:
-          type: string
-        easyship_shipment_id:
-          type: string
-        status:
-          type: string
-        platform_order_number:
-          type: string
-        origin_address:
-          $ref: '#/components/schemas/Address'
-        destination_address:
-          $ref: '#/components/schemas/Address'
-        parcels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Parcel'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Item'
     Address:
       type: object
       properties:
@@ -187,6 +153,29 @@ components:
           type: string
         company_name:
           type: string
+    Shipment:
+      type: object
+      properties:
+        id:
+          type: string
+        easyship_shipment_id:
+          type: string
+        status:
+          type: string
+        platform_order_number:
+          type: string
+        origin_address:
+          $ref: '#/components/schemas/Address'
+        destination_address:
+          $ref: '#/components/schemas/Address'
+        parcels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parcel'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
     Item:
       type: object
       properties:
@@ -206,13 +195,22 @@ components:
           type: string
         origin_country_alpha2:
           type: string
-  parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
+    Parcel:
+      type: object
+      properties:
+        box:
+          type: object
+          properties:
+            length:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+            slug:
+              type: string
+        total_actual_weight:
+          type: number
   securitySchemes:
     BearerAuth:
       type: http

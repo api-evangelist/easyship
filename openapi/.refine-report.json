@@ -1,13 +1,7 @@
 {
   "provider": "easyship",
   "sources": [
-    "easyship-addresses-api-openapi.yml",
-    "easyship-labels-api-openapi.yml",
-    "easyship-pickups-api-openapi.yml",
-    "easyship-rates-api-openapi.yml",
-    "easyship-shipments-api-openapi.yml",
-    "easyship-trackings-api-openapi.yml",
-    "easyship-webhooks-api-openapi.yml"
+    "_original/easyship-openapi.yml"
   ],
   "outputs": [
     "easyship-addresses-api-openapi.yml",
@@ -21,6 +15,44 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "easyship-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "easyship-openapi.yml: tagged paths POST /rates -> Rates",
+    "easyship-openapi.yml: tagged paths POST /shipments -> Shipments",
+    "easyship-openapi.yml: tagged paths GET /shipments -> Shipments",
+    "easyship-openapi.yml: tagged paths GET /shipments/{id} -> Shipments",
+    "easyship-openapi.yml: tagged paths PATCH /shipments/{id} -> Shipments",
+    "easyship-openapi.yml: tagged paths DELETE /shipments/{id} -> Shipments",
+    "easyship-openapi.yml: tagged paths POST /shipments/{id}/cancel -> Shipments",
+    "easyship-openapi.yml: tagged paths POST /labels -> Labels",
+    "easyship-openapi.yml: tagged paths POST /addresses -> Addresses",
+    "easyship-openapi.yml: tagged paths GET /addresses -> Addresses",
+    "easyship-openapi.yml: tagged paths GET /addresses/{id} -> Addresses",
+    "easyship-openapi.yml: tagged paths PATCH /addresses/{id} -> Addresses",
+    "easyship-openapi.yml: tagged paths POST /pickups -> Pickups",
+    "easyship-openapi.yml: tagged paths GET /pickups -> Pickups",
+    "easyship-openapi.yml: tagged paths POST /trackings -> Trackings",
+    "easyship-openapi.yml: tagged paths GET /trackings -> Trackings",
+    "easyship-openapi.yml: tagged paths GET /trackings/{id} -> Trackings",
+    "easyship-openapi.yml: tagged paths POST /webhooks -> Webhooks",
+    "easyship-openapi.yml: tagged paths GET /webhooks -> Webhooks",
+    "easyship-openapi.yml: declared missing tag: Addresses",
+    "easyship-openapi.yml: declared missing tag: Labels",
+    "easyship-openapi.yml: declared missing tag: Pickups",
+    "easyship-openapi.yml: declared missing tag: Rates",
+    "easyship-openapi.yml: declared missing tag: Shipments",
+    "easyship-openapi.yml: declared missing tag: Trackings",
+    "easyship-openapi.yml: declared missing tag: Webhooks",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "easyship-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easyship-labels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easyship-pickups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easyship-rates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easyship-shipments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easyship-trackings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easyship-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

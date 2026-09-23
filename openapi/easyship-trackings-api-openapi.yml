@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Easyship Addresses Trackings API
+  title: Easyship Trackings API
   description: 'REST API for the Easyship multi-courier shipping platform. Covers rates,
 
     shipments, labels, addresses, pickups, trackings, products, boxes,
@@ -9,9 +9,7 @@ info:
 
     tokens. This specification is a best-effort, documentation-derived
 
-    description and may omit fields.
-
-    '
+    description and may omit fields.'
   version: 2024-09
   contact:
     name: Easyship
