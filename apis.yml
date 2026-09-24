@@ -119,8 +119,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 - aid: easyship:easyship-labels-api
   name: Easyship Labels API
   description: The Labels API from Easyship — 1 operation(s) for labels.
@@ -185,8 +183,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 - aid: easyship:easyship-pickups-api
   name: Easyship Pickups API
   description: The Pickups API from Easyship — 1 operation(s) for pickups.
@@ -251,8 +247,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 - aid: easyship:easyship-rates-api
   name: Easyship Rates API
   description: The Rates API from Easyship — 1 operation(s) for rates.
@@ -317,8 +311,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 - aid: easyship:easyship-shipments-api
   name: Easyship Shipments API
   description: The Shipments API from Easyship — 3 operation(s) for shipments.
@@ -383,8 +375,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 - aid: easyship:easyship-trackings-api
   name: Easyship Trackings API
   description: The Trackings API from Easyship — 2 operation(s) for trackings.
@@ -449,8 +439,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 - aid: easyship:easyship-webhooks-api
   name: Easyship Webhooks API
   description: The Webhooks API from Easyship — 1 operation(s) for webhooks.
@@ -517,8 +505,6 @@ apis:
   - type: FinOps
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
-  - type: GraphQL
-    url: graphql/easyship-graphql.md
 common:
 - type: CapabilityMap
   url: capabilities/easyship-capability-edges.yml
