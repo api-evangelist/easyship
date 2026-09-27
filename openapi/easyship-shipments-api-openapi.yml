@@ -120,14 +120,30 @@ paths:
       tags:
       - Shipments
 components:
-  parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   schemas:
+    Shipment:
+      type: object
+      properties:
+        id:
+          type: string
+        easyship_shipment_id:
+          type: string
+        status:
+          type: string
+        platform_order_number:
+          type: string
+        origin_address:
+          $ref: '#/components/schemas/Address'
+        destination_address:
+          $ref: '#/components/schemas/Address'
+        parcels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parcel'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
     Address:
       type: object
       properties:
@@ -153,29 +169,6 @@ components:
           type: string
         company_name:
           type: string
-    Shipment:
-      type: object
-      properties:
-        id:
-          type: string
-        easyship_shipment_id:
-          type: string
-        status:
-          type: string
-        platform_order_number:
-          type: string
-        origin_address:
-          $ref: '#/components/schemas/Address'
-        destination_address:
-          $ref: '#/components/schemas/Address'
-        parcels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Parcel'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Item'
     Item:
       type: object
       properties:
@@ -211,6 +204,13 @@ components:
               type: string
         total_actual_weight:
           type: number
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     BearerAuth:
       type: http

@@ -63,22 +63,6 @@ paths:
       - Rates
 components:
   schemas:
-    Parcel:
-      type: object
-      properties:
-        box:
-          type: object
-          properties:
-            length:
-              type: number
-            width:
-              type: number
-            height:
-              type: number
-            slug:
-              type: string
-        total_actual_weight:
-          type: number
     Item:
       type: object
       properties:
@@ -98,6 +82,37 @@ components:
           type: string
         origin_country_alpha2:
           type: string
+    Parcel:
+      type: object
+      properties:
+        box:
+          type: object
+          properties:
+            length:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+            slug:
+              type: string
+        total_actual_weight:
+          type: number
+    Rate:
+      type: object
+      properties:
+        courier_id:
+          type: string
+        courier_name:
+          type: string
+        total_charge:
+          type: number
+        currency:
+          type: string
+        min_delivery_time:
+          type: integer
+        max_delivery_time:
+          type: integer
     Address:
       type: object
       properties:
@@ -123,21 +138,6 @@ components:
           type: string
         company_name:
           type: string
-    Rate:
-      type: object
-      properties:
-        courier_id:
-          type: string
-        courier_name:
-          type: string
-        total_charge:
-          type: number
-        currency:
-          type: string
-        min_delivery_time:
-          type: integer
-        max_delivery_time:
-          type: integer
   securitySchemes:
     BearerAuth:
       type: http
