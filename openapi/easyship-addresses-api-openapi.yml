@@ -86,6 +86,13 @@ paths:
       tags:
       - Addresses
 components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   schemas:
     Address:
       type: object
@@ -112,13 +119,6 @@ components:
           type: string
         company_name:
           type: string
-  parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   securitySchemes:
     BearerAuth:
       type: http
