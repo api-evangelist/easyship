@@ -120,14 +120,23 @@ paths:
       tags:
       - Shipments
 components:
-  parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   schemas:
+    Parcel:
+      type: object
+      properties:
+        box:
+          type: object
+          properties:
+            length:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+            slug:
+              type: string
+        total_actual_weight:
+          type: number
     Address:
       type: object
       properties:
@@ -153,41 +162,6 @@ components:
           type: string
         company_name:
           type: string
-    Parcel:
-      type: object
-      properties:
-        box:
-          type: object
-          properties:
-            length:
-              type: number
-            width:
-              type: number
-            height:
-              type: number
-            slug:
-              type: string
-        total_actual_weight:
-          type: number
-    Item:
-      type: object
-      properties:
-        description:
-          type: string
-        quantity:
-          type: integer
-        actual_weight:
-          type: number
-        declared_currency:
-          type: string
-        declared_customs_value:
-          type: number
-        sku:
-          type: string
-        hs_code:
-          type: string
-        origin_country_alpha2:
-          type: string
     Shipment:
       type: object
       properties:
@@ -211,6 +185,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Item'
+    Item:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: integer
+        actual_weight:
+          type: number
+        declared_currency:
+          type: string
+        declared_customs_value:
+          type: number
+        sku:
+          type: string
+        hs_code:
+          type: string
+        origin_country_alpha2:
+          type: string
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     BearerAuth:
       type: http
