@@ -856,6 +856,23 @@ edges:
   direction: third-party
   category: eCommerce
   partner_url: https://searchagora.com/
+- partner_name: karrio
+  partner: karrio
+  partner_match: aggregator
+  channel: partner-built
+  direction: partner-built
+  type: contract
+  relationship: carrier-coverage
+  evidence: https://github.com/api-evangelist/karrio/blob/main/openapi/karrio-carriers-api-openapi.yml
+  detected_by: detect-carrier-edges.py
+  first_seen: '2026-10-12'
+  contract_reference:
+    repo: karrio
+    spec_file: karrio-carriers-api-openapi.yml
+    value: easyship
+    property: schemas.CarrierDetails.carrier_name
+    detected_by: detect-carrier-edges.py
+    detected: '2026-10-12'
 templates:
 - title: Create Easyship shipments for new Jotform submissions
   url: https://zapier.com/apps/easyship/integrations/jotform/1404820/create-easyship-shipments-for-new-jotform-submissions
