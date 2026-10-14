@@ -292,3 +292,22 @@
     detected: '2026-10-13'
   status: not-a-workflow
   arazzo: null
+- slug: easyship-mcp-registry
+  label: MCP Registry
+  partner: mcp
+  partner_name: MCP Registry
+  type: register
+  channel: standard-directory
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=com.easyship
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: com.easyship/mcp
+    register_id: com.easyship/mcp
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-14'
+  status: not-a-workflow
+  arazzo: null
