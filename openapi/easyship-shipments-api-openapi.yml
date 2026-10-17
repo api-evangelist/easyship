@@ -121,6 +121,25 @@ paths:
       - Shipments
 components:
   schemas:
+    Item:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: integer
+        actual_weight:
+          type: number
+        declared_currency:
+          type: string
+        declared_customs_value:
+          type: number
+        sku:
+          type: string
+        hs_code:
+          type: string
+        origin_country_alpha2:
+          type: string
     Parcel:
       type: object
       properties:
@@ -185,25 +204,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Item'
-    Item:
-      type: object
-      properties:
-        description:
-          type: string
-        quantity:
-          type: integer
-        actual_weight:
-          type: number
-        declared_currency:
-          type: string
-        declared_customs_value:
-          type: number
-        sku:
-          type: string
-        hs_code:
-          type: string
-        origin_country_alpha2:
-          type: string
   parameters:
     IdPath:
       in: path
