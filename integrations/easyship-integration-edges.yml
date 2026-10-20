@@ -6,6 +6,7 @@ source:
 checked:
 - https://composio.dev/toolkits/easyship
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://monid.ai/tools/easyship
 - https://n8n.io/integrations/easyship/
 - https://registry.modelcontextprotocol.io/v0/servers
@@ -891,7 +892,7 @@ edges:
     registered_name: com.easyship/mcp
     register_id: com.easyship/mcp
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   mcp_registry:
     servers:
     - com.easyship/mcp
@@ -941,7 +942,7 @@ edges:
   channel: open-source-node
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/easyship
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/easyship
   category: null
   contract_reference:
     register: Pipedream components (PipedreamHQ/pipedream components/)
