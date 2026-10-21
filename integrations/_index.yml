@@ -441,3 +441,15 @@
     year: '2015'
   status: not-a-workflow
   arazzo: null
+- slug: easyship-amazon-selling-partner-appstore
+  label: Amazon Selling Partner Appstore
+  partner: amazon-seller-central
+  partner_name: Amazon Selling Partner Appstore
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sellerapps.app.86a52618-470b-41f7-bc1c-691ad428cc5a
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
