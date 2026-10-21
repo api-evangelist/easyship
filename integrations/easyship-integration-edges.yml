@@ -12,6 +12,7 @@ checked:
 - https://registry.modelcontextprotocol.io/v0/servers
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/easyship/integrations
+- bigcommerce/integrations/bigcommerce-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -445,6 +446,23 @@ edges:
   direction: third-party
   category: eCommerce
   partner_url: https://searchagora.com/
+- partner_name: BigCommerce (own)
+  partner: bigcommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.bigcommerce.com/apps/easyship/
+  mirror_of: bigcommerce/integrations/bigcommerce-integration-edges.yml
+  apps:
+  - 'Easyship: All-in-One Shipping'
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Shipping & Fulfillment, Cross-Border Fulfillment, Shipping & Fulfillment, Label Printing
 templates:
 - title: Create Easyship shipments for new Jotform submissions
   url: https://zapier.com/apps/easyship/integrations/jotform/1404820/create-easyship-shipments-for-new-jotform-submissions
