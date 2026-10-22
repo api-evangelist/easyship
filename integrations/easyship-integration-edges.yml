@@ -21,6 +21,7 @@ checked:
 - https://advertising.amazon.com/partners/directory
 - https://sellercentral.amazon.com/gspn
 - https://sellercentral.amazon.com/selling-partner-appstore
+- wix/integrations/wix-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -454,23 +455,6 @@ edges:
   direction: third-party
   category: eCommerce
   partner_url: https://searchagora.com/
-- partner_name: BigCommerce (own)
-  partner: bigcommerce
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.bigcommerce.com/apps/easyship/
-  mirror_of: bigcommerce/integrations/bigcommerce-integration-edges.yml
-  apps:
-  - 'Easyship: All-in-One Shipping'
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Shipping & Fulfillment, Cross-Border Fulfillment, Shipping & Fulfillment, Label Printing
 - partner_name: 500 Global
   partner: 500-global
   partner_match: register
@@ -513,6 +497,40 @@ edges:
   - Easyship ‑ All in One Shipping
   detected: '2026-10-21'
   detected_by: sweep-amazon-sp-api-appstore.py
+- partner_name: BigCommerce (own)
+  partner: bigcommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.bigcommerce.com/apps/easyship/
+  mirror_of: bigcommerce/integrations/bigcommerce-integration-edges.yml
+  apps:
+  - 'Easyship: All-in-One Shipping'
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Shipping & Fulfillment, Cross-Border Fulfillment, Shipping & Fulfillment, Label Printing
+- partner_name: Wix (own)
+  partner: wix
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.wix.com/app-market/developer/easyship
+  mirror_of: wix/integrations/wix-integration-edges.yml
+  apps:
+  - Easyship
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Shipping & Delivery
 templates:
 - title: Create Easyship shipments for new Jotform submissions
   url: https://zapier.com/apps/easyship/integrations/jotform/1404820/create-easyship-shipments-for-new-jotform-submissions

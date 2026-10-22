@@ -400,19 +400,6 @@
   relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
-- slug: easyship-bigcommerce-own
-  label: BigCommerce (own)
-  partner: bigcommerce
-  partner_name: BigCommerce (own)
-  category: Shipping & Fulfillment, Cross-Border Fulfillment, Shipping & Fulfillment, Label Printing
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.bigcommerce.com/apps/easyship/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: easyship-500-global
   label: 500 Global
   partner: 500-global
@@ -449,6 +436,32 @@
   marketplace: own
   channel: partner-built
   evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sellerapps.app.86a52618-470b-41f7-bc1c-691ad428cc5a
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: easyship-bigcommerce-own
+  label: BigCommerce (own)
+  partner: bigcommerce
+  partner_name: BigCommerce (own)
+  category: Shipping & Fulfillment, Cross-Border Fulfillment, Shipping & Fulfillment, Label Printing
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.bigcommerce.com/apps/easyship/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: easyship-wix-own
+  label: Wix (own)
+  partner: wix
+  partner_name: Wix (own)
+  category: Shipping & Delivery
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.wix.com/app-market/developer/easyship
   source: edge
   relationship: platform-app
   status: not-a-workflow
