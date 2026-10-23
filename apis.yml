@@ -509,6 +509,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/easyship/overview
 - type: Plans
   url: plans/easyship-plans-pricing.yml
 - type: RateLimits
