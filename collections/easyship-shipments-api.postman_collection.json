@@ -1,29 +1,381 @@
 {
+  "info": {
+    "_postman_id": "8bf3fb3e-a647-4235-8b35-deea817c83e3",
+    "name": "Easyship Shipments API",
+    "description": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\nContact Support:\n Name: Easyship",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:09:02.000Z",
+    "updatedAt": "2026-10-22T01:09:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8bf3fb3e-a647-4235-8b35-deea817c83e3"
+  },
   "item": [
     {
-      "id": "9efe584b-cc27-4d12-9a14-ef5d744b4e0b",
-      "name": "Shipments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "shipments",
       "item": [
         {
-          "id": "1a948a13-274a-4a52-813b-bd758566c187",
-          "name": "Create a shipment",
-          "request": {
-            "name": "Create a shipment",
-            "description": {},
-            "url": {
-              "path": [
-                "shipments"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel a shipment",
+                  "id": "df4af73b-bd67-4c1c-915c-c2802bae8b3c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/shipments/:id/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipments",
+                        ":id",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6b8dda97-0251-4531-b7d3-c4dafd96caab",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c034b331-e434-40b7-a806-b9216b50330a",
+                      "name": "Cancellation accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shipments/:id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shipments",
+                            ":id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:09:03.000Z",
+                      "updatedAt": "2026-10-22T01:09:03.000Z",
+                      "uid": "35240-c034b331-e434-40b7-a806-b9216b50330a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:09:03.000Z",
+                  "updatedAt": "2026-10-22T01:09:03.000Z",
+                  "uid": "35240-df4af73b-bd67-4c1c-915c-c2802bae8b3c"
+                }
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
+              "id": "aade1699-c227-494b-9eda-7b29bb83d4b3",
+              "createdAt": "2026-10-22T01:09:03.000Z",
+              "updatedAt": "2026-10-22T01:09:03.000Z",
+              "uid": "35240-aade1699-c227-494b-9eda-7b29bb83d4b3"
             },
+            {
+              "name": "Show a shipment",
+              "id": "e8ad65ba-a856-457a-ab01-bb3fc1473d64",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shipments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "70b9797b-3c8c-4479-9da4-32f96f4f8fec",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5324535c-d0d1-4b2f-81c9-5af500645a4b",
+                  "name": "Shipment",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shipments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"easyship_shipment_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"platform_order_number\": \"<string>\",\n  \"origin_address\": {\n    \"id\": \"<string>\",\n    \"line_1\": \"<string>\",\n    \"line_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_alpha2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"contact_name\": \"<string>\",\n    \"contact_phone\": \"<string>\",\n    \"contact_email\": \"<string>\",\n    \"company_name\": \"<string>\"\n  },\n  \"destination_address\": {\n    \"id\": \"<string>\",\n    \"line_1\": \"<string>\",\n    \"line_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_alpha2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"contact_name\": \"<string>\",\n    \"contact_phone\": \"<string>\",\n    \"contact_email\": \"<string>\",\n    \"company_name\": \"<string>\"\n  },\n  \"parcels\": [\n    {\n      \"box\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"slug\": \"<string>\"\n      },\n      \"total_actual_weight\": \"<number>\"\n    },\n    {\n      \"box\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"slug\": \"<string>\"\n      },\n      \"total_actual_weight\": \"<number>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"actual_weight\": \"<number>\",\n      \"declared_currency\": \"<string>\",\n      \"declared_customs_value\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"hs_code\": \"<string>\",\n      \"origin_country_alpha2\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"actual_weight\": \"<number>\",\n      \"declared_currency\": \"<string>\",\n      \"declared_customs_value\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"hs_code\": \"<string>\",\n      \"origin_country_alpha2\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T01:09:03.000Z",
+                  "updatedAt": "2026-10-22T01:09:03.000Z",
+                  "uid": "35240-5324535c-d0d1-4b2f-81c9-5af500645a4b"
+                }
+              ],
+              "createdAt": "2026-10-22T01:09:03.000Z",
+              "updatedAt": "2026-10-22T01:09:03.000Z",
+              "uid": "35240-e8ad65ba-a856-457a-ab01-bb3fc1473d64"
+            },
+            {
+              "name": "Update a shipment",
+              "id": "eeb14afd-6070-4e39-8068-69fac2d5aa88",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"commodo93\": 44263196.100711435,\n  \"laboris_b\": -73455657.92651683,\n  \"auteae1\": \"occaecat qui ut irure\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/shipments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f10703b1-f7f3-4cd5-9404-d0080b983540",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0c17ce54-3883-43ad-ab78-93ead6135294",
+                  "name": "Updated shipment",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"commodo93\": 44263196.100711435,\n  \"laboris_b\": -73455657.92651683,\n  \"auteae1\": \"occaecat qui ut irure\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shipments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:09:03.000Z",
+                  "updatedAt": "2026-10-22T01:09:03.000Z",
+                  "uid": "35240-0c17ce54-3883-43ad-ab78-93ead6135294"
+                }
+              ],
+              "createdAt": "2026-10-22T01:09:03.000Z",
+              "updatedAt": "2026-10-22T01:09:03.000Z",
+              "uid": "35240-eeb14afd-6070-4e39-8068-69fac2d5aa88"
+            },
+            {
+              "name": "Delete a shipment",
+              "id": "e94078c0-6b19-4124-8228-2eda11c28e70",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/shipments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f811ded5-1b86-4722-82c4-d09d42f368db",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ebaa5000-c9a6-47cf-a664-187ddbe29595",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shipments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:09:03.000Z",
+                  "updatedAt": "2026-10-22T01:09:03.000Z",
+                  "uid": "35240-ebaa5000-c9a6-47cf-a664-187ddbe29595"
+                }
+              ],
+              "createdAt": "2026-10-22T01:09:03.000Z",
+              "updatedAt": "2026-10-22T01:09:03.000Z",
+              "uid": "35240-e94078c0-6b19-4124-8228-2eda11c28e70"
+            }
+          ],
+          "id": "f0fe3b94-8d3d-492e-b65d-fc5501f1fa77",
+          "createdAt": "2026-10-22T01:09:03.000Z",
+          "updatedAt": "2026-10-22T01:09:03.000Z",
+          "uid": "35240-f0fe3b94-8d3d-492e-b65d-fc5501f1fa77"
+        },
+        {
+          "name": "Create a shipment",
+          "id": "334ec3ea-5a38-4c18-bc59-76995e4a7402",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -34,123 +386,146 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"key_0\": 6616,\n  \"key_1\": 196.1711629338736\n}",
+              "raw": "{\n  \"commodo93\": 44263196.100711435,\n  \"laboris_b\": -73455657.92651683,\n  \"auteae1\": \"occaecat qui ut irure\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shipments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shipments"
+              ]
             }
           },
           "response": [
             {
-              "id": "3fcc2da2-cd5a-4d8b-823a-73bb22ff3ae1",
+              "id": "a11fa64e-00ad-4b43-8c65-315877f0f781",
               "name": "Shipment created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": 6296.053825486363,\n  \"key_2\": true\n}",
+                  "raw": "{\n  \"commodo93\": 44263196.100711435,\n  \"laboris_b\": -73455657.92651683,\n  \"auteae1\": \"occaecat qui ut irure\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/shipments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"easyship_shipment_id\": \"string\",\n  \"status\": \"string\",\n  \"platform_order_number\": \"string\",\n  \"origin_address\": {\n    \"id\": \"string\",\n    \"line_1\": \"string\",\n    \"line_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"country_alpha2\": \"string\",\n    \"postal_code\": \"string\",\n    \"contact_name\": \"string\",\n    \"contact_phone\": \"string\",\n    \"contact_email\": \"string\",\n    \"company_name\": \"string\"\n  },\n  \"destination_address\": {\n    \"id\": \"string\",\n    \"line_1\": \"string\",\n    \"line_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"country_alpha2\": \"string\",\n    \"postal_code\": \"string\",\n    \"contact_name\": \"string\",\n    \"contact_phone\": \"string\",\n    \"contact_email\": \"string\",\n    \"company_name\": \"string\"\n  },\n  \"parcels\": [\n    {\n      \"box\": {\n        \"length\": 9792.138482055492,\n        \"width\": 4175.7485838032435,\n        \"height\": 6848.217988103373,\n        \"slug\": \"string\"\n      },\n      \"total_actual_weight\": 5163.0678103451655\n    },\n    {\n      \"box\": {\n        \"length\": 3116.731448490927,\n        \"width\": 4370.816794315393,\n        \"height\": 6580.25944548483,\n        \"slug\": \"string\"\n      },\n      \"total_actual_weight\": 7389.982787303736\n    }\n  ],\n  \"items\": [\n    {\n      \"description\": \"string\",\n      \"quantity\": 5136,\n      \"actual_weight\": 5212.644254503044,\n      \"declared_currency\": \"string\",\n      \"declared_customs_value\": 3448.8472169941588,\n      \"sku\": \"string\",\n      \"hs_code\": \"string\",\n      \"origin_country_alpha2\": \"string\"\n    },\n    {\n      \"description\": \"string\",\n      \"quantity\": 6693,\n      \"actual_weight\": 9547.779106605378,\n      \"declared_currency\": \"string\",\n      \"declared_customs_value\": 7786.170372261765,\n      \"sku\": \"string\",\n      \"hs_code\": \"string\",\n      \"origin_country_alpha2\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"easyship_shipment_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"platform_order_number\": \"<string>\",\n  \"origin_address\": {\n    \"id\": \"<string>\",\n    \"line_1\": \"<string>\",\n    \"line_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_alpha2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"contact_name\": \"<string>\",\n    \"contact_phone\": \"<string>\",\n    \"contact_email\": \"<string>\",\n    \"company_name\": \"<string>\"\n  },\n  \"destination_address\": {\n    \"id\": \"<string>\",\n    \"line_1\": \"<string>\",\n    \"line_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_alpha2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"contact_name\": \"<string>\",\n    \"contact_phone\": \"<string>\",\n    \"contact_email\": \"<string>\",\n    \"company_name\": \"<string>\"\n  },\n  \"parcels\": [\n    {\n      \"box\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"slug\": \"<string>\"\n      },\n      \"total_actual_weight\": \"<number>\"\n    },\n    {\n      \"box\": {\n        \"length\": \"<number>\",\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"slug\": \"<string>\"\n      },\n      \"total_actual_weight\": \"<number>\"\n    }\n  ],\n  \"items\": [\n    {\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"actual_weight\": \"<number>\",\n      \"declared_currency\": \"<string>\",\n      \"declared_customs_value\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"hs_code\": \"<string>\",\n      \"origin_country_alpha2\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"actual_weight\": \"<number>\",\n      \"declared_currency\": \"<string>\",\n      \"declared_customs_value\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"hs_code\": \"<string>\",\n      \"origin_country_alpha2\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:09:03.000Z",
+              "updatedAt": "2026-10-22T01:09:03.000Z",
+              "uid": "35240-a11fa64e-00ad-4b43-8c65-315877f0f781"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:09:03.000Z",
+          "updatedAt": "2026-10-22T01:09:03.000Z",
+          "uid": "35240-334ec3ea-5a38-4c18-bc59-76995e4a7402"
         },
         {
-          "id": "b0e46058-b380-4010-a3e9-438b5a1c2105",
           "name": "List shipments",
+          "id": "04394c89-2682-4e91-9c01-c7696badcc02",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List shipments",
-            "description": {},
-            "url": {
-              "path": [
-                "shipments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/shipments?page=<integer>&per_page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shipments"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "55f6775b-1bc7-49b5-9637-6cbb2f7110f0",
+              "id": "0a63a778-51a2-4d38-9c74-44f8f19fc978",
               "name": "Shipments",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "shipments"
-                  ],
+                  "raw": "{{baseUrl}}/shipments?page=<integer>&per_page=<integer>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments"
                   ],
                   "query": [
                     {
@@ -161,421 +536,35 @@
                       "key": "per_page",
                       "value": "<integer>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"shipments\": [\n    {\n      \"id\": \"string\",\n      \"easyship_shipment_id\": \"string\",\n      \"status\": \"string\",\n      \"platform_order_number\": \"string\",\n      \"origin_address\": {\n        \"id\": \"string\",\n        \"line_1\": \"string\",\n        \"line_2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"country_alpha2\": \"string\",\n        \"postal_code\": \"string\",\n        \"contact_name\": \"string\",\n        \"contact_phone\": \"string\",\n        \"contact_email\": \"string\",\n        \"company_name\": \"string\"\n      },\n      \"destination_address\": {\n        \"id\": \"string\",\n        \"line_1\": \"string\",\n        \"line_2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"country_alpha2\": \"string\",\n        \"postal_code\": \"string\",\n        \"contact_name\": \"string\",\n        \"contact_phone\": \"string\",\n        \"contact_email\": \"string\",\n        \"company_name\": \"string\"\n      },\n      \"parcels\": [\n        {\n          \"box\": {\n            \"length\": 603.2635106798411,\n            \"width\": 9824.574507556947,\n            \"height\": 6480.269593347651,\n            \"slug\": \"string\"\n          },\n          \"total_actual_weight\": 7782.043985481257\n        },\n        {\n          \"box\": {\n            \"length\": 9688.426256813455,\n            \"width\": 6319.451666150371,\n            \"height\": 9616.329832920852,\n            \"slug\": \"string\"\n          },\n          \"total_actual_weight\": 6963.723560963221\n        }\n      ],\n      \"items\": [\n        {\n          \"description\": \"string\",\n          \"quantity\": 3417,\n          \"actual_weight\": 8461.102389352473,\n          \"declared_currency\": \"string\",\n          \"declared_customs_value\": 3337.7064923580424,\n          \"sku\": \"string\",\n          \"hs_code\": \"string\",\n          \"origin_country_alpha2\": \"string\"\n        },\n        {\n          \"description\": \"string\",\n          \"quantity\": 3589,\n          \"actual_weight\": 8023.619377649722,\n          \"declared_currency\": \"string\",\n          \"declared_customs_value\": 3911.8692153716293,\n          \"sku\": \"string\",\n          \"hs_code\": \"string\",\n          \"origin_country_alpha2\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"easyship_shipment_id\": \"string\",\n      \"status\": \"string\",\n      \"platform_order_number\": \"string\",\n      \"origin_address\": {\n        \"id\": \"string\",\n        \"line_1\": \"string\",\n        \"line_2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"country_alpha2\": \"string\",\n        \"postal_code\": \"string\",\n        \"contact_name\": \"string\",\n        \"contact_phone\": \"string\",\n        \"contact_email\": \"string\",\n        \"company_name\": \"string\"\n      },\n      \"destination_address\": {\n        \"id\": \"string\",\n        \"line_1\": \"string\",\n        \"line_2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"country_alpha2\": \"string\",\n        \"postal_code\": \"string\",\n        \"contact_name\": \"string\",\n        \"contact_phone\": \"string\",\n        \"contact_email\": \"string\",\n        \"company_name\": \"string\"\n      },\n      \"parcels\": [\n        {\n          \"box\": {\n            \"length\": 8847.24304469345,\n            \"width\": 1318.5036877869115,\n            \"height\": 1984.0934058126281,\n            \"slug\": \"string\"\n          },\n          \"total_actual_weight\": 9617.481701523522\n        },\n        {\n          \"box\": {\n            \"length\": 2598.0344985847723,\n            \"width\": 5228.124563270634,\n            \"height\": 2824.665584332896,\n            \"slug\": \"string\"\n          },\n          \"total_actual_weight\": 34.890437624214286\n        }\n      ],\n      \"items\": [\n        {\n          \"description\": \"string\",\n          \"quantity\": 7832,\n          \"actual_weight\": 238.13780401334193,\n          \"declared_currency\": \"string\",\n          \"declared_customs_value\": 429.5263705909835,\n          \"sku\": \"string\",\n          \"hs_code\": \"string\",\n          \"origin_country_alpha2\": \"string\"\n        },\n        {\n          \"description\": \"string\",\n          \"quantity\": 601,\n          \"actual_weight\": 3175.2242707535083,\n          \"declared_currency\": \"string\",\n          \"declared_customs_value\": 9968.534324187856,\n          \"sku\": \"string\",\n          \"hs_code\": \"string\",\n          \"origin_country_alpha2\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"shipments\": [\n    {\n      \"id\": \"<string>\",\n      \"easyship_shipment_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"platform_order_number\": \"<string>\",\n      \"origin_address\": {\n        \"id\": \"<string>\",\n        \"line_1\": \"<string>\",\n        \"line_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country_alpha2\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"contact_name\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"contact_email\": \"<string>\",\n        \"company_name\": \"<string>\"\n      },\n      \"destination_address\": {\n        \"id\": \"<string>\",\n        \"line_1\": \"<string>\",\n        \"line_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country_alpha2\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"contact_name\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"contact_email\": \"<string>\",\n        \"company_name\": \"<string>\"\n      },\n      \"parcels\": [\n        {\n          \"box\": {\n            \"length\": \"<number>\",\n            \"width\": \"<number>\",\n            \"height\": \"<number>\",\n            \"slug\": \"<string>\"\n          },\n          \"total_actual_weight\": \"<number>\"\n        },\n        {\n          \"box\": {\n            \"length\": \"<number>\",\n            \"width\": \"<number>\",\n            \"height\": \"<number>\",\n            \"slug\": \"<string>\"\n          },\n          \"total_actual_weight\": \"<number>\"\n        }\n      ],\n      \"items\": [\n        {\n          \"description\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"actual_weight\": \"<number>\",\n          \"declared_currency\": \"<string>\",\n          \"declared_customs_value\": \"<number>\",\n          \"sku\": \"<string>\",\n          \"hs_code\": \"<string>\",\n          \"origin_country_alpha2\": \"<string>\"\n        },\n        {\n          \"description\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"actual_weight\": \"<number>\",\n          \"declared_currency\": \"<string>\",\n          \"declared_customs_value\": \"<number>\",\n          \"sku\": \"<string>\",\n          \"hs_code\": \"<string>\",\n          \"origin_country_alpha2\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"easyship_shipment_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"platform_order_number\": \"<string>\",\n      \"origin_address\": {\n        \"id\": \"<string>\",\n        \"line_1\": \"<string>\",\n        \"line_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country_alpha2\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"contact_name\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"contact_email\": \"<string>\",\n        \"company_name\": \"<string>\"\n      },\n      \"destination_address\": {\n        \"id\": \"<string>\",\n        \"line_1\": \"<string>\",\n        \"line_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country_alpha2\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"contact_name\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"contact_email\": \"<string>\",\n        \"company_name\": \"<string>\"\n      },\n      \"parcels\": [\n        {\n          \"box\": {\n            \"length\": \"<number>\",\n            \"width\": \"<number>\",\n            \"height\": \"<number>\",\n            \"slug\": \"<string>\"\n          },\n          \"total_actual_weight\": \"<number>\"\n        },\n        {\n          \"box\": {\n            \"length\": \"<number>\",\n            \"width\": \"<number>\",\n            \"height\": \"<number>\",\n            \"slug\": \"<string>\"\n          },\n          \"total_actual_weight\": \"<number>\"\n        }\n      ],\n      \"items\": [\n        {\n          \"description\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"actual_weight\": \"<number>\",\n          \"declared_currency\": \"<string>\",\n          \"declared_customs_value\": \"<number>\",\n          \"sku\": \"<string>\",\n          \"hs_code\": \"<string>\",\n          \"origin_country_alpha2\": \"<string>\"\n        },\n        {\n          \"description\": \"<string>\",\n          \"quantity\": \"<integer>\",\n          \"actual_weight\": \"<number>\",\n          \"declared_currency\": \"<string>\",\n          \"declared_customs_value\": \"<number>\",\n          \"sku\": \"<string>\",\n          \"hs_code\": \"<string>\",\n          \"origin_country_alpha2\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:09:03.000Z",
+              "updatedAt": "2026-10-22T01:09:03.000Z",
+              "uid": "35240-0a63a778-51a2-4d38-9c74-44f8f19fc978"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cf373e66-3a28-4e21-8f7d-f015a104ce50",
-          "name": "Show a shipment",
-          "request": {
-            "name": "Show a shipment",
-            "description": {},
-            "url": {
-              "path": [
-                "shipments",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5e28425d-e968-4039-9173-b05c84dec164",
-              "name": "Shipment",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"easyship_shipment_id\": \"string\",\n  \"status\": \"string\",\n  \"platform_order_number\": \"string\",\n  \"origin_address\": {\n    \"id\": \"string\",\n    \"line_1\": \"string\",\n    \"line_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"country_alpha2\": \"string\",\n    \"postal_code\": \"string\",\n    \"contact_name\": \"string\",\n    \"contact_phone\": \"string\",\n    \"contact_email\": \"string\",\n    \"company_name\": \"string\"\n  },\n  \"destination_address\": {\n    \"id\": \"string\",\n    \"line_1\": \"string\",\n    \"line_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"country_alpha2\": \"string\",\n    \"postal_code\": \"string\",\n    \"contact_name\": \"string\",\n    \"contact_phone\": \"string\",\n    \"contact_email\": \"string\",\n    \"company_name\": \"string\"\n  },\n  \"parcels\": [\n    {\n      \"box\": {\n        \"length\": 9792.138482055492,\n        \"width\": 4175.7485838032435,\n        \"height\": 6848.217988103373,\n        \"slug\": \"string\"\n      },\n      \"total_actual_weight\": 5163.0678103451655\n    },\n    {\n      \"box\": {\n        \"length\": 3116.731448490927,\n        \"width\": 4370.816794315393,\n        \"height\": 6580.25944548483,\n        \"slug\": \"string\"\n      },\n      \"total_actual_weight\": 7389.982787303736\n    }\n  ],\n  \"items\": [\n    {\n      \"description\": \"string\",\n      \"quantity\": 5136,\n      \"actual_weight\": 5212.644254503044,\n      \"declared_currency\": \"string\",\n      \"declared_customs_value\": 3448.8472169941588,\n      \"sku\": \"string\",\n      \"hs_code\": \"string\",\n      \"origin_country_alpha2\": \"string\"\n    },\n    {\n      \"description\": \"string\",\n      \"quantity\": 6693,\n      \"actual_weight\": 9547.779106605378,\n      \"declared_currency\": \"string\",\n      \"declared_customs_value\": 7786.170372261765,\n      \"sku\": \"string\",\n      \"hs_code\": \"string\",\n      \"origin_country_alpha2\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7d740cbe-b5bd-40f3-8be4-dafccaa56fa4",
-          "name": "Update a shipment",
-          "request": {
-            "name": "Update a shipment",
-            "description": {},
-            "url": {
-              "path": [
-                "shipments",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"key_0\": 6616,\n  \"key_1\": 196.1711629338736\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "68f1a7ef-9cf9-4fd2-9e93-b1bfb583e270",
-              "name": "Updated shipment",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": 6296.053825486363,\n  \"key_2\": true\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4a74c21e-ae82-409c-a03e-b55af295d7ca",
-          "name": "Delete a shipment",
-          "request": {
-            "name": "Delete a shipment",
-            "description": {},
-            "url": {
-              "path": [
-                "shipments",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9d13d94d-14f9-4b7a-9c4d-812f1534e0e2",
-              "name": "Deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5aeb3841-bb92-4cb1-a0a3-359f3fd69506",
-          "name": "Cancel a shipment",
-          "request": {
-            "name": "Cancel a shipment",
-            "description": {},
-            "url": {
-              "path": [
-                "shipments",
-                ":id",
-                "cancel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6c20992c-097a-48c1-a464-df400e510fea",
-              "name": "Cancellation accepted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments",
-                    ":id",
-                    "cancel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:09:03.000Z",
+          "updatedAt": "2026-10-22T01:09:03.000Z",
+          "uid": "35240-04394c89-2682-4e91-9c01-c7696badcc02"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.easyship.com/2024-09",
-      "key": "baseUrl"
+      "id": "8ba6e400-4011-4102-90c9-b1f1d22b7dba",
+      "createdAt": "2026-10-22T01:09:03.000Z",
+      "updatedAt": "2026-10-22T01:09:03.000Z",
+      "uid": "35240-8ba6e400-4011-4102-90c9-b1f1d22b7dba"
     }
   ],
   "auth": {
@@ -583,17 +572,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b9c23131-babd-4a07-8d36-ae70361a2d3b",
-    "name": "Easyship Addresses Shipments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: Easyship",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.easyship.com/2024-09"
     }
-  }
+  ]
 }

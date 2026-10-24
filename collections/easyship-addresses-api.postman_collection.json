@@ -1,385 +1,380 @@
 {
+  "info": {
+    "_postman_id": "e6f5cc52-f88e-4b2d-84b8-14e4f9d21d74",
+    "name": "Easyship Addresses API",
+    "description": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\nContact Support:\n Name: Easyship",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:08:39.000Z",
+    "updatedAt": "2026-10-22T01:08:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e6f5cc52-f88e-4b2d-84b8-14e4f9d21d74"
+  },
   "item": [
     {
-      "id": "a2dd8924-e066-4900-b460-e6000c9d4e44",
-      "name": "Addresses",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "addresses",
       "item": [
         {
-          "id": "9bd97111-ce09-426a-a939-8cc8fe44a109",
-          "name": "Create an address",
-          "request": {
-            "name": "Create an address",
-            "description": {},
-            "url": {
-              "path": [
-                "addresses"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Show an address",
+              "id": "1ff76dda-ee42-4235-8635-ccd2d73d776e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/addresses/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "addresses",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e303bb56-0585-454c-be79-73a1592e893a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "fc5424f6-130e-4ccb-bc1e-5b816fe566a6",
+                  "name": "Address",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/addresses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "addresses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:08:39.000Z",
+                  "updatedAt": "2026-10-22T01:08:39.000Z",
+                  "uid": "35240-fc5424f6-130e-4ccb-bc1e-5b816fe566a6"
+                }
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
+              "createdAt": "2026-10-22T01:08:39.000Z",
+              "updatedAt": "2026-10-22T01:08:39.000Z",
+              "uid": "35240-1ff76dda-ee42-4235-8635-ccd2d73d776e"
             },
+            {
+              "name": "Update an address",
+              "id": "411e3c1a-29e5-45a7-8c34-9e2aa1c4472c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/addresses/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "addresses",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5e975b96-2b8a-49ea-b07e-0c4440d09e2e",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "311fc87d-3370-40e2-b6b9-f3b2907e3221",
+                  "name": "Updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/addresses/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "addresses",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:08:39.000Z",
+                  "updatedAt": "2026-10-22T01:08:39.000Z",
+                  "uid": "35240-311fc87d-3370-40e2-b6b9-f3b2907e3221"
+                }
+              ],
+              "createdAt": "2026-10-22T01:08:39.000Z",
+              "updatedAt": "2026-10-22T01:08:39.000Z",
+              "uid": "35240-411e3c1a-29e5-45a7-8c34-9e2aa1c4472c"
+            }
+          ],
+          "id": "69cade80-23a6-4975-b709-60cdcee3fc05",
+          "createdAt": "2026-10-22T01:08:39.000Z",
+          "updatedAt": "2026-10-22T01:08:39.000Z",
+          "uid": "35240-69cade80-23a6-4975-b709-60cdcee3fc05"
+        },
+        {
+          "name": "Create an address",
+          "id": "6e685c73-7c75-4bf1-96ca-748f47d3eb4f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/addresses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "addresses"
+              ]
             }
           },
           "response": [
             {
-              "id": "f9763b98-397a-4c56-9c27-b10c1839866c",
+              "id": "45e1d524-722c-43ad-b82f-a9843244a06c",
               "name": "Created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "addresses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/addresses",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "addresses"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:08:39.000Z",
+              "updatedAt": "2026-10-22T01:08:39.000Z",
+              "uid": "35240-45e1d524-722c-43ad-b82f-a9843244a06c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:08:39.000Z",
+          "updatedAt": "2026-10-22T01:08:39.000Z",
+          "uid": "35240-6e685c73-7c75-4bf1-96ca-748f47d3eb4f"
         },
         {
-          "id": "232ad5dd-12c8-4645-8be1-3a67d56dcc73",
           "name": "List addresses",
+          "id": "80d1f716-9b52-4ee4-ab0f-c92ca53fa5a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List addresses",
-            "description": {},
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/addresses",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "addresses"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "9ea870b0-fe76-4f03-9c51-eff355b9e24a",
+              "id": "ab5ffc2e-334d-4588-96ca-558e2efe38c4",
               "name": "Addresses",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/addresses",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "addresses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"addresses\": [\n    {\n      \"id\": \"string\",\n      \"line_1\": \"string\",\n      \"line_2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country_alpha2\": \"string\",\n      \"postal_code\": \"string\",\n      \"contact_name\": \"string\",\n      \"contact_phone\": \"string\",\n      \"contact_email\": \"string\",\n      \"company_name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"line_1\": \"string\",\n      \"line_2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country_alpha2\": \"string\",\n      \"postal_code\": \"string\",\n      \"contact_name\": \"string\",\n      \"contact_phone\": \"string\",\n      \"contact_email\": \"string\",\n      \"company_name\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"addresses\": [\n    {\n      \"id\": \"<string>\",\n      \"line_1\": \"<string>\",\n      \"line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country_alpha2\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"contact_name\": \"<string>\",\n      \"contact_phone\": \"<string>\",\n      \"contact_email\": \"<string>\",\n      \"company_name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"line_1\": \"<string>\",\n      \"line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country_alpha2\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"contact_name\": \"<string>\",\n      \"contact_phone\": \"<string>\",\n      \"contact_email\": \"<string>\",\n      \"company_name\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:08:39.000Z",
+              "updatedAt": "2026-10-22T01:08:39.000Z",
+              "uid": "35240-ab5ffc2e-334d-4588-96ca-558e2efe38c4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fd00c8aa-f416-4e66-a53a-22aa073c83eb",
-          "name": "Show an address",
-          "request": {
-            "name": "Show an address",
-            "description": {},
-            "url": {
-              "path": [
-                "addresses",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "55eaadfe-2bf4-4710-bbd8-b7d3dbb81474",
-              "name": "Address",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "addresses",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"line_1\": \"string\",\n  \"line_2\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country_alpha2\": \"string\",\n  \"postal_code\": \"string\",\n  \"contact_name\": \"string\",\n  \"contact_phone\": \"string\",\n  \"contact_email\": \"string\",\n  \"company_name\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dc85529b-07c7-4093-9e79-ee0671cb06b1",
-          "name": "Update an address",
-          "request": {
-            "name": "Update an address",
-            "description": {},
-            "url": {
-              "path": [
-                "addresses",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "a7f88b8b-07a1-4722-aeb7-1346efeb65c6",
-              "name": "Updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "addresses",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"id\": \"<string>\",\n  \"line_1\": \"<string>\",\n  \"line_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country_alpha2\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"contact_email\": \"<string>\",\n  \"company_name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:08:39.000Z",
+          "updatedAt": "2026-10-22T01:08:39.000Z",
+          "uid": "35240-80d1f716-9b52-4ee4-ab0f-c92ca53fa5a8"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.easyship.com/2024-09",
-      "key": "baseUrl"
+      "id": "dd2ba494-3562-40e6-80c3-fa9393a0e982",
+      "createdAt": "2026-10-22T01:08:39.000Z",
+      "updatedAt": "2026-10-22T01:08:39.000Z",
+      "uid": "35240-dd2ba494-3562-40e6-80c3-fa9393a0e982"
     }
   ],
   "auth": {
@@ -387,17 +382,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "04c39c6a-46d3-485d-8822-9487dc8749e5",
-    "name": "Easyship Addresses API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: Easyship",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.easyship.com/2024-09"
     }
-  }
+  ]
 }

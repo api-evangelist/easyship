@@ -1,186 +1,182 @@
 {
+  "info": {
+    "_postman_id": "7df68232-2c95-437d-9684-096dd3df728a",
+    "name": "Easyship Pickups API",
+    "description": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\nContact Support:\n Name: Easyship",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:08:50.000Z",
+    "updatedAt": "2026-10-22T01:08:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7df68232-2c95-437d-9684-096dd3df728a"
+  },
   "item": [
     {
-      "id": "fcfe79fd-f015-449f-bbca-bb788b19e78c",
-      "name": "Pickups",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "pickups",
       "item": [
         {
-          "id": "75515ae4-c18f-44eb-8c8d-f85f1f5ae559",
           "name": "Create a pickup",
+          "id": "d5727f18-8437-4b4e-b532-0a2e0da184b9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create a pickup",
-            "description": {},
-            "url": {
-              "path": [
-                "pickups"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"key_0\": 4703.55174182144\n}",
+              "raw": "{\n  \"laborum2\": \"cupidatat ea\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pickups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pickups"
+              ]
             }
           },
           "response": [
             {
-              "id": "4c0b6032-6b59-426c-ad00-f9b475f47579",
+              "id": "dba4b686-7324-4ad6-80b2-1bac7cdf4b80",
               "name": "Pickup created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "pickups"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"key_0\": 8982\n}",
+                  "raw": "{\n  \"laborum2\": \"cupidatat ea\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/pickups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pickups"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:08:51.000Z",
+              "updatedAt": "2026-10-22T01:08:51.000Z",
+              "uid": "35240-dba4b686-7324-4ad6-80b2-1bac7cdf4b80"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:08:51.000Z",
+          "updatedAt": "2026-10-22T01:08:51.000Z",
+          "uid": "35240-d5727f18-8437-4b4e-b532-0a2e0da184b9"
         },
         {
-          "id": "917432b8-5001-4831-bfef-3d6229c0d56b",
           "name": "List pickups",
+          "id": "46fd480e-73e6-484b-a257-e1a5e1467b64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List pickups",
-            "description": {},
-            "url": {
-              "path": [
-                "pickups"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/pickups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pickups"
+              ]
+            }
           },
           "response": [
             {
-              "id": "11b2643d-b0b4-4507-883a-73feaff7adae",
+              "id": "646bdd80-95ac-4ac6-a370-29df69c9bf51",
               "name": "Pickups",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "pickups"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/pickups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pickups"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"key_0\": 8982\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"laborum2\": \"cupidatat ea\"\n}",
+              "createdAt": "2026-10-22T01:08:51.000Z",
+              "updatedAt": "2026-10-22T01:08:51.000Z",
+              "uid": "35240-646bdd80-95ac-4ac6-a370-29df69c9bf51"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:08:51.000Z",
+          "updatedAt": "2026-10-22T01:08:51.000Z",
+          "uid": "35240-46fd480e-73e6-484b-a257-e1a5e1467b64"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.easyship.com/2024-09",
-      "key": "baseUrl"
+      "id": "7f1be6d9-4b74-4139-8c6c-05b13ab7ec81",
+      "createdAt": "2026-10-22T01:08:51.000Z",
+      "updatedAt": "2026-10-22T01:08:51.000Z",
+      "uid": "35240-7f1be6d9-4b74-4139-8c6c-05b13ab7ec81"
     }
   ],
   "auth": {
@@ -188,17 +184,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "df88723e-8567-4f2f-b956-2a133b5b7185",
-    "name": "Easyship Addresses Pickups API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: Easyship",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.easyship.com/2024-09"
     }
-  }
+  ]
 }

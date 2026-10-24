@@ -1,186 +1,182 @@
 {
+  "info": {
+    "_postman_id": "a2d01b20-ca3a-4ba5-b998-13e2f61f19c8",
+    "name": "Easyship Webhooks API",
+    "description": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\nContact Support:\n Name: Easyship",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:09:13.000Z",
+    "updatedAt": "2026-10-22T01:09:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a2d01b20-ca3a-4ba5-b998-13e2f61f19c8"
+  },
   "item": [
     {
-      "id": "ac8d2137-7c97-44ee-b60a-93d62ebb9df6",
-      "name": "Webhooks",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "webhooks",
       "item": [
         {
-          "id": "7b7f48ed-250f-42ee-992a-0a0523468ff1",
           "name": "Create a webhook",
+          "id": "4510bc6b-5976-4e24-bfa1-f6185fbdc666",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create a webhook",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"url\": \"<uri>\",\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ]
             }
           },
           "response": [
             {
-              "id": "ebabb7eb-8d81-4ebc-957f-2a2d8ea5938f",
+              "id": "39b3acb5-3e4a-45f9-8bf5-3ec8f4b0267a",
               "name": "Webhook created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "webhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"url\": \"<uri>\",\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:09:13.000Z",
+              "updatedAt": "2026-10-22T01:09:13.000Z",
+              "uid": "35240-39b3acb5-3e4a-45f9-8bf5-3ec8f4b0267a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:09:13.000Z",
+          "updatedAt": "2026-10-22T01:09:13.000Z",
+          "uid": "35240-4510bc6b-5976-4e24-bfa1-f6185fbdc666"
         },
         {
-          "id": "5936f3d2-b929-4965-966b-4e23cede8ca2",
           "name": "List webhooks",
+          "id": "97bcbdda-da24-4cb4-92c3-637e5f4f8edd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List webhooks",
-            "description": {},
-            "url": {
-              "path": [
-                "webhooks"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ]
+            }
           },
           "response": [
             {
-              "id": "b758aca8-1ac1-4ef2-ba32-fe811728bb0d",
+              "id": "166d2e85-13ef-4ecb-9de9-5f8a5c525a3e",
               "name": "Webhooks",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "webhooks"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"key_0\": \"string\",\n  \"key_1\": 5540.221195445706\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"tempor8\": -78494295\n}",
+              "createdAt": "2026-10-22T01:09:13.000Z",
+              "updatedAt": "2026-10-22T01:09:13.000Z",
+              "uid": "35240-166d2e85-13ef-4ecb-9de9-5f8a5c525a3e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:09:13.000Z",
+          "updatedAt": "2026-10-22T01:09:13.000Z",
+          "uid": "35240-97bcbdda-da24-4cb4-92c3-637e5f4f8edd"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.easyship.com/2024-09",
-      "key": "baseUrl"
+      "id": "9fa53cd1-0cfa-4393-8e91-9bf6a2f3db39",
+      "createdAt": "2026-10-22T01:09:13.000Z",
+      "updatedAt": "2026-10-22T01:09:13.000Z",
+      "uid": "35240-9fa53cd1-0cfa-4393-8e91-9bf6a2f3db39"
     }
   ],
   "auth": {
@@ -188,17 +184,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a9c9e01d-5c85-4eb3-b1a1-6daaaca6b7e1",
-    "name": "Easyship Addresses Webhooks API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: Easyship",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.easyship.com/2024-09"
     }
-  }
+  ]
 }

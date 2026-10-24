@@ -1,279 +1,278 @@
 {
+  "info": {
+    "_postman_id": "3fd9d243-1fb1-4ae8-9aae-a85f598620ac",
+    "name": "Easyship Trackings API",
+    "description": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\nContact Support:\n Name: Easyship",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:09:06.000Z",
+    "updatedAt": "2026-10-22T01:09:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3fd9d243-1fb1-4ae8-9aae-a85f598620ac"
+  },
   "item": [
     {
-      "id": "0bd93f4f-3c82-4eae-a72a-200ba1696234",
-      "name": "Trackings",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "trackings",
       "item": [
         {
-          "id": "c977da3e-bba9-497e-b24b-b854ca8bdbdf",
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Show a tracking",
+              "id": "2ca8692f-d0e0-4fe6-aaa8-f4f8eb102f2f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trackings/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trackings",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c4eb7a21-18bf-4fe0-8613-138312fa2b73",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2a4eebe6-b1eb-4117-970b-497319c7a214",
+                  "name": "Tracking",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/trackings/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "trackings",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"in_35\": true,\n  \"consequat_9\": \"dolor dolore occaecat minim mollit\"\n}",
+                  "createdAt": "2026-10-22T01:09:07.000Z",
+                  "updatedAt": "2026-10-22T01:09:07.000Z",
+                  "uid": "35240-2a4eebe6-b1eb-4117-970b-497319c7a214"
+                }
+              ],
+              "createdAt": "2026-10-22T01:09:07.000Z",
+              "updatedAt": "2026-10-22T01:09:07.000Z",
+              "uid": "35240-2ca8692f-d0e0-4fe6-aaa8-f4f8eb102f2f"
+            }
+          ],
+          "id": "9826c018-5b50-4368-8a7f-fb1546de37b9",
+          "createdAt": "2026-10-22T01:09:07.000Z",
+          "updatedAt": "2026-10-22T01:09:07.000Z",
+          "uid": "35240-9826c018-5b50-4368-8a7f-fb1546de37b9"
+        },
+        {
           "name": "Create a tracking",
+          "id": "e9cd78b7-67a1-4a15-9c15-0fdfda32ab06",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create a tracking",
-            "description": {},
-            "url": {
-              "path": [
-                "trackings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"courier_umbrella_name\": \"<string>\",\n  \"tracking_number\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/trackings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trackings"
+              ]
             }
           },
           "response": [
             {
-              "id": "d9ecaf63-6f8c-449f-9058-abe921b1b800",
+              "id": "3e31ffbd-8c72-4843-90ca-a35b63778417",
               "name": "Tracking created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "trackings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"courier_umbrella_name\": \"<string>\",\n  \"tracking_number\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/trackings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trackings"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:09:07.000Z",
+              "updatedAt": "2026-10-22T01:09:07.000Z",
+              "uid": "35240-3e31ffbd-8c72-4843-90ca-a35b63778417"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:09:07.000Z",
+          "updatedAt": "2026-10-22T01:09:07.000Z",
+          "uid": "35240-e9cd78b7-67a1-4a15-9c15-0fdfda32ab06"
         },
         {
-          "id": "258812c4-1373-43fd-aa8c-2b3e6ef00a6a",
           "name": "List trackings",
+          "id": "be36a95b-24a0-4718-9036-5d2aa522fa9d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List trackings",
-            "description": {},
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/trackings",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "trackings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+              ]
+            }
           },
           "response": [
             {
-              "id": "adc2dc8b-7a8e-4196-97c9-bf09e3ea5abb",
+              "id": "b5e53388-e6ce-48ed-a298-888ba3277d93",
               "name": "Trackings",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/trackings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "trackings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"key_0\": 752,\n  \"key_1\": 1067.0339704476594\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e6825b1f-daf2-4742-bd6f-699f025c0458",
-          "name": "Show a tracking",
-          "request": {
-            "name": "Show a tracking",
-            "description": {},
-            "url": {
-              "path": [
-                "trackings",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9d51cb67-623a-4c9f-9bbe-6aa8ebe74d48",
-              "name": "Tracking",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "trackings",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"key_0\": 752,\n  \"key_1\": 1067.0339704476594\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"in_35\": true,\n  \"consequat_9\": \"dolor dolore occaecat minim mollit\"\n}",
+              "createdAt": "2026-10-22T01:09:07.000Z",
+              "updatedAt": "2026-10-22T01:09:07.000Z",
+              "uid": "35240-b5e53388-e6ce-48ed-a298-888ba3277d93"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:09:07.000Z",
+          "updatedAt": "2026-10-22T01:09:07.000Z",
+          "uid": "35240-be36a95b-24a0-4718-9036-5d2aa522fa9d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.easyship.com/2024-09",
-      "key": "baseUrl"
+      "id": "5c20470b-2544-4477-9627-2ee6da092d89",
+      "createdAt": "2026-10-22T01:09:07.000Z",
+      "updatedAt": "2026-10-22T01:09:07.000Z",
+      "uid": "35240-5c20470b-2544-4477-9627-2ee6da092d89"
     }
   ],
   "auth": {
@@ -281,17 +280,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6ae1d44e-73df-41dc-aad6-34e6ab42db7c",
-    "name": "Easyship Addresses Trackings API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "REST API for the Easyship multi-courier shipping platform. Covers rates,\nshipments, labels, addresses, pickups, trackings, products, boxes,\nmanifests, webhooks and insurance. Authentication is OAuth 2.0 Bearer\ntokens. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: Easyship",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.easyship.com/2024-09"
     }
-  }
+  ]
 }
