@@ -1,4 +1,4 @@
-# Easyship (easyship)
+# Easyship
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,84 +66,181 @@
 
 Easyship is a comprehensive all-in-one shipping platform headquartered in Hong Kong that provides e-commerce businesses with a one-stop solution for their shipping needs. From comparing rates and services across 250+ couriers to managing orders, generating labels, scheduling pickups, calculating duties and taxes, and tracking shipments, Easyship streamlines cross-border and domestic logistics for businesses of all sizes. The Easyship REST API exposes the same shipping engine that powers the Easyship dashboard and platform integrations to developers building custom commerce, fulfillment, and logistics workflows.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/apis.yml)
+**Areas:** Shipping · Logistics · E-Commerce · Fulfillment · Cross-Border
 
-## Scope
+## Easyship on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Easyship is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/easyship/](https://apis.io/providers/easyship/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- Shipping
-- Logistics
-- Ecommerce
-- Fulfillment
-- CrossBorder
+- [Easyship Addresses API](https://apis.io/apis/easyship/easyship-addresses-api/) — The Addresses API from Easyship — 2 operation(s) for addresses.
+- [Easyship Labels API](https://apis.io/apis/easyship/easyship-labels-api/) — The Labels API from Easyship — 1 operation(s) for labels.
+- [Easyship Pickups API](https://apis.io/apis/easyship/easyship-pickups-api/) — The Pickups API from Easyship — 1 operation(s) for pickups.
+- [Easyship Rates API](https://apis.io/apis/easyship/easyship-rates-api/) — The Rates API from Easyship — 1 operation(s) for rates.
+- [Easyship Shipments API](https://apis.io/apis/easyship/easyship-shipments-api/) — The Shipments API from Easyship — 3 operation(s) for shipments.
+- [Easyship Trackings API](https://apis.io/apis/easyship/easyship-trackings-api/) — The Trackings API from Easyship — 2 operation(s) for trackings.
+- [Easyship Webhooks API](https://apis.io/apis/easyship/easyship-webhooks-api/) — The Webhooks API from Easyship — 1 operation(s) for webhooks.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-03-01
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Easyship API
+GraphQL schemas.
 
-The Easyship API allows e-commerce platforms and merchants to programmatically compare carrier rates across 250+ integrated couriers, generate shipping labels, manage shipments and tracking, schedule courier pickups, handle returns, and calculate duties and taxes for international parcels. Authentication uses OAuth 2.0 bearer tokens and the surface includes shipments, rates, labels, addresses, pickups, trackings, manifests, webhooks, products, boxes, and insurance.
+- [Moved to /providers/easyship/](https://apis.io/graphqls/easyship/easyship-graphql/)
 
-- **Human URL:** [https://developers.easyship.com/](https://developers.easyship.com/)
-- **Base URL:** `https://api.easyship.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Shipping
-- Logistics
-- Ecommerce
-- CrossBorder
+- [Easyship Agentic Access](https://apis.io/agentic-access/easyship/easyship-agentic-access/)
 
-#### Properties
+#### JSON Schema (5)
 
-- [Documentation](https://developers.easyship.com/docs)
-- [Reference](https://developers.easyship.com/reference)
-- [Getting Started](https://developers.easyship.com/reference/getting-started)
-- [Authentication](https://developers.easyship.com/reference/authentication)
-- [Recipes](https://developers.easyship.com/recipes)
-- [Changelog](https://developers.easyship.com/changelog)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/openapi/easyship-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-shipment-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-rate-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-label-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-tracking-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-schema/easyship-webhook-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-structure/easyship-structure.json)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/json-ld/easyship-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rules/easyship-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/vocabulary/easyship-vocabulary.yml)
-- [Example](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-get-rates-example.json)
-- [Example](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/examples/easyship-create-label-example.json)
-- [Plans](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/plans/easyship-plans-pricing.yml)
-- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/rate-limits/easyship-rate-limits.yml)
-- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/easyship/refs/heads/main/finops/easyship-finops.yml)
-- [Postman Collection](collections/easyship.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/easyship.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-## Common Properties
+- [Easyship Label](https://apis.io/schemas/easyship/easyship-label/)
+- [Easyship Rate](https://apis.io/schemas/easyship/easyship-rate/)
+- [Easyship Shipment](https://apis.io/schemas/easyship/easyship-shipment/)
+- [Easyship Tracking](https://apis.io/schemas/easyship/easyship-tracking/)
+- [Easyship Webhook](https://apis.io/schemas/easyship/easyship-webhook/)
 
-- [GitHub Organization](https://github.com/easyship)
-- [LinkedIn](https://www.linkedin.com/company/easyship)
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Easyship Structure](https://apis.io/json-structure/easyship/easyship-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Easyship Context](https://apis.io/jsonld/easyship/easyship-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Easyship API Vocabulary](https://apis.io/vocabularies/easyship/easyship-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Easyship Create Label Example](https://apis.io/examples/easyship/easyship-create-label-example/)
+- [Easyship Get Rates Example](https://apis.io/examples/easyship/easyship-get-rates-example/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Easyship API](https://apis.io/collections/easyship/open-easyship/)
+- [Easyship Addresses API](https://apis.io/collections/easyship/open-easyship-addresses-api/)
+- [Easyship Addresses Labels API](https://apis.io/collections/easyship/open-easyship-labels-api/)
+- [Easyship Addresses Pickups API](https://apis.io/collections/easyship/open-easyship-pickups-api/)
+- [Easyship Addresses Rates API](https://apis.io/collections/easyship/open-easyship-rates-api/)
+- [Easyship Addresses Shipments API](https://apis.io/collections/easyship/open-easyship-shipments-api/)
+- [Easyship Addresses Trackings API](https://apis.io/collections/easyship/open-easyship-trackings-api/)
+- [Easyship Addresses Webhooks API](https://apis.io/collections/easyship/open-easyship-webhooks-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Easyship — jsonschema rules](https://apis.io/rules/easyship/easyship-jsonschema-spectral-rules/)
+- [Easyship API Rules](https://apis.io/rules/easyship/easyship-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Easyship Authentication](https://apis.io/security/easyship/easyship-authentication/)
+- [Easyship Domain Security](https://apis.io/security/easyship/easyship-domain-security/)
+- [Easyship Vulnerability Disclosure](https://apis.io/security/easyship/easyship-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Easyship Plans Pricing](https://apis.io/plans/easyship/easyship-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Easyship Rate Limits](https://apis.io/rate-limits/easyship/easyship-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Easyship Finops](https://apis.io/finops/easyship/easyship-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.easyship.com/)
-- [Developer  Portal](https://developers.easyship.com/)
 - [Pricing](https://www.easyship.com/pricing)
-- [Sign Up](https://app.easyship.com/login)
 - [Support](https://support.easyship.com/)
 - [Blog](https://www.easyship.com/blog)
-- [Status Page](https://status.easyship.com/)
-- [Integrations](https://www.easyship.com/integrations)
-- [L L Ms Txt](https://developers.easyship.com/llms.txt)
+- [GitHub](https://github.com/easyship)
+- [Status](https://status.easyship.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 44.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 63.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 44.7 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 21.1 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/easyship/](https://apis.io/providers/easyship/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Easyship: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/easyship/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
